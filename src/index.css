@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  font-family: "MacPaw Fixel Display", "SF Pro Display", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@font-face {
+  font-family: "MacPaw Fixel Display";
+  src: url(../src/fonts/MacPawFixelDisplay-Bold.otf) format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MacPaw Fixel Display";
+  src: url(../src/fonts/MacPawFixelDisplay-Regular.otf) format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MacPaw Fixel Display";
+  src: url(../src/fonts/MacPawFixelDisplay-SemiBold.otf) format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url(../src/fonts/SF-Pro-Display-Light.otf) format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url(../src/fonts/SF-Pro-Display-Regular.otf) format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
