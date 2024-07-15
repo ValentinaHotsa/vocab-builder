@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import css from "./Modal.module.css";
-// ==========додати іконку. перевірити роботу=============================
+import svg from "../../assets/icon.svg";
+// ========== перевірити роботу, обновити стилі=============================
 const Modal = ({ onClose, children }) => {
   const targetElement = document.getElementById("modal-root");
   const backdrop = useRef();
@@ -37,7 +38,7 @@ const Modal = ({ onClose, children }) => {
       <div className={css.modalWrap}>
         <button className={css.btnClose} onClick={onClose}>
           <svg className={css.iconClose}>
-            <use />
+            <use href={`${svg}#icon-close`} />
           </svg>
         </button>
         {children}
