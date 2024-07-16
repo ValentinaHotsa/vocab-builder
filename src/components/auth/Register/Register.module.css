@@ -1,0 +1,42 @@
+.containerForm {
+}
+.hiddenLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.registerForm {
+}
+.containerInput {
+  position: relative;
+}
+.input {
+}
+.input::placeholder {
+}
+.iconEye {
+  position: absolute;
+  right: 10px;
+  /* stroke: ${theme.colors.black}; */
+  fill: transparent;
+  width: 20px;
+  height: 20px;
+  top: 30%;
+  right: 19px;
+}
+.btnSubmit {
+}
+.btnSubmit:hover,
+.btnSubmit:focus,
+.btnSubmit:active {
+}
+.errorMessage {
+  /* position: absolute; */
+}
+.link {
+}

@@ -1,5 +1,20 @@
 @import-normalize;
 
+:root {
+  --black: #121417;
+  --white: #f8f8f8;
+  --background-white: #fcfcfc;
+  --gray-text-color: rgba(18, 20, 23, 0.5);
+  --main-green: #85aa9f;
+  --hover-grren: #a5c0b8;
+  --form-error: #d80027;
+  --form-success: #3cbf61;
+  --progress-full: #2bd627;
+  --progress-empty: #d4f8d3;
+  --form-background: rgba(133, 170, 159, 0.1);
+  --border: rgb(219, 219, 219);
+}
+
 body {
   margin: 0;
   font-family: "MacPaw Fixel Display", "SF Pro Display", -apple-system,
