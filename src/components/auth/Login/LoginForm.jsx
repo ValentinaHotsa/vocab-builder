@@ -2,7 +2,7 @@ import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import css from "./Login.module.css";
+import css from "./LoginForm.module.css";
 import { useState } from "react";
 import svg from "../../../assets/icon.svg";
 import { Link, useNavigate } from "react-router-dom";
@@ -33,7 +33,7 @@ const LoginForm = ({ onSuccess }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, emptyInput },
+    formState: { errors, dirtyFields },
   } = useForm({
     mode: "onChange",
     resolver: yupResolver(loginSchema),
@@ -52,27 +52,26 @@ const LoginForm = ({ onSuccess }) => {
             Enter your email
           </label>
           <input
-            className={
-              emptyInput.name || errors.name
-                ? errors.name
-                  ? "error"
-                  : "valid"
-                : ""
-            }
+            className={`${css.input} ${
+              dirtyFields.name ? (errors.name ? css.error : css.valid) : ""
+            }`}
             {...register("email")}
             id="email"
             type="email"
             placeholder="Email"
           />
-          {(emptyInput.email || errors.email) && (
-            //============================================= ПЕРЕВІРИТИ РОБОТУ ПОМИЛКИ!!!!!==================================================
-            <div error={errors.email !== undefined}>
+          {(dirtyFields.email || errors.email) && (
+            <div className={css.validationContainer}>
               <svg className={css.iconInput}>
                 <use
-                  href={`${svg}#${errors ? "icon-error" : "icon-success"} `}
+                  href={`${svg}#${
+                    errors.email ? "icon-error" : "icon-success"
+                  }`}
                 />
               </svg>
-              {errors.email?.message || "Success email"}
+              <span className={css.validationMessage}>
+                {errors.email?.message || "Success email"}
+              </span>
             </div>
           )}
         </div>
@@ -81,13 +80,9 @@ const LoginForm = ({ onSuccess }) => {
             Enter your password
           </label>
           <input
-            className={
-              emptyInput.name || errors.name
-                ? errors.name
-                  ? "error"
-                  : "valid"
-                : ""
-            }
+            className={`${css.input} ${
+              dirtyFields.name ? (errors.name ? css.error : css.valid) : ""
+            }`}
             id="password"
             {...register("password")}
             type={showPassword ? "text" : "password"}
@@ -98,15 +93,18 @@ const LoginForm = ({ onSuccess }) => {
               href={showPassword ? `${svg}#icon-eye` : `${svg}#icon-eye-off`}
             ></use>
           </svg>
-          {(emptyInput.password || errors.password) && (
-            //============================================= ПЕРЕВІРИТИ РОБОТУ ПОМИЛКИ!!!!!==================================================
-            <div error={errors.password !== undefined}>
+          {(dirtyFields.password || errors.password) && (
+            <div className={css.validationContainer}>
               <svg className={css.iconInput}>
                 <use
-                  href={`${svg}#${errors ? "icon-error" : "icon-success"} `}
+                  href={`${svg}#${
+                    errors.password ? "icon-error" : "icon-success"
+                  }`}
                 />
               </svg>
-              {errors.password?.message || "Success password"}
+              <span className={css.validationMessage}>
+                {errors.password?.message || "Success password"}
+              </span>
             </div>
           )}
         </div>
