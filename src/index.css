@@ -4,6 +4,7 @@
   --black: #121417;
   --white: #f8f8f8;
   --background-white: #fcfcfc;
+  --main-background: rgb(226, 226, 226);
   --gray-text-color: rgba(18, 20, 23, 0.5);
   --main-green: #85aa9f;
   --hover-grren: #a5c0b8;
@@ -17,11 +18,20 @@
 
 body {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--white);
+
   font-family: "MacPaw Fixel Display", "SF Pro Display", -apple-system,
     BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--black);
+  font-weight: 400;
+  font-style: normal;
+  /* width: 100%;
+  height: 100vh; */
 }
 
 h1,
@@ -42,6 +52,7 @@ ul,
 ol {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 img {
@@ -49,6 +60,18 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+button {
+  cursor: pointer;
+  padding: 0;
+}
+
+/* #root {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

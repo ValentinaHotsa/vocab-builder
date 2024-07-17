@@ -9,10 +9,10 @@ const LogOut = () => {
     dispatch(signoutThunk());
   };
   return (
-    <button onClick={handleClick}>
+    <button className={css.button} onClick={handleClick}>
       Log out{" "}
-      <svg>
-        <use href={`${svg}#icon-arrow-right`} />
+      <svg className={css.icon}>
+        <use href={`${svg}#icon-arrow-out`} />
       </svg>
     </button>
   );

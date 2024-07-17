@@ -1,11 +1,28 @@
 .userContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 
 .userName {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
 }
 
 .iconWrap {
+  border-radius: 50%;
+  background-color: var(--main-green);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .iconUser {
+  width: 18px;
+  height: 18px;
+  fill: rgba(252, 252, 252, 0.7);
 }

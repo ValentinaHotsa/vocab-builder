@@ -8,7 +8,7 @@ import UserBar from "../UserBar/UserBar";
 const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
-    <div>
+    <div className={css.headerContent}>
       <div className={css.logoContainer}>
         <svg className={css.logoIcon}>
           <use href={`${svg}#icon-logo`} />

@@ -1,6 +1,8 @@
 .navWrap {
   display: flex;
   gap: 28px;
+  justify-content: center;
+  align-items: center;
 }
 
 .navLink {
@@ -10,9 +12,13 @@
   line-height: 19px;
 }
 
-.active {
+.navLink.active {
   color: var(--background-white);
   background-color: var(--main-green);
   border-radius: 15px;
   padding: 12px 20px;
+}
+
+.navLink:hover {
+  color: var(--gray-text-color);
 }

@@ -1,0 +1,38 @@
+.mainContainer {
+  margin: 0 auto;
+  padding: 0 10px;
+  height: 100vh;
+}
+
+@media screen and (min-width: 320px) {
+  .mainContainer {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .mainContainer {
+    max-width: 375px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mainContainer {
+    max-width: 768px;
+    padding: 0 30px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .mainContainer {
+    max-width: 1440px;
+    padding: 0 40px;
+  }
+}
+
+.headerContainer {
+  width: 100%;
+  background-color: #ffffff; /* Замените на нужный цвет */
+  padding: 20px 0;
+}

@@ -1,3 +1,13 @@
+.headerContent {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .logoContainer {
   display: flex;
   gap: 16px;
