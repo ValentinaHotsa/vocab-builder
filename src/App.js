@@ -1,6 +1,9 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import PrivateRoute from "./pages/PrivateRoute";
+import PrivateRoute from "./routes/PrivateRoute";
+import { RestrictedRoute } from "./routes/RestrictedRoute";
+import { refreshUserThunk } from "./redux/auth/operation";
+import { useDispatch } from "react-redux";
 
 const Main = lazy(() => import("./pages/MainPage"));
 const Login = lazy(() => import("./pages/LoginPage"));
@@ -14,56 +17,52 @@ const SharedLayout = lazy(() =>
 );
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUserThunk());
+  }, [dispatch]);
+
   return (
     <Suspense fallback={<h3>Loading...</h3>}>
       <Routes>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/register" element={<Register />}></Route>
-
-        <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <SharedLayout />
-            </PrivateRoute>
-          }
-        >
+        <Route path="/" element={<SharedLayout />}>
           <Route
-            path="/"
+            path="register"
             element={
-              <PrivateRoute>
-                <Main />
-              </PrivateRoute>
+              <RestrictedRoute
+                redirectTo="/dictionary"
+                component={<Register />}
+              />
             }
-          >
-            <Route
-              path="training"
-              element={
-                <PrivateRoute>
-                  <Training />
-                </PrivateRoute>
-              }
-            ></Route>
-            <Route
-              path="dictionary"
-              element={
-                <PrivateRoute>
-                  <Dictionary />
-                </PrivateRoute>
-              }
-            ></Route>
-            <Route
-              path="recommend"
-              element={
-                <PrivateRoute>
-                  <Recommend />
-                </PrivateRoute>
-              }
-            ></Route>
-          </Route>
-        </Route>
+          />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute redirectTo="/dictionary" component={<Login />} />
+            }
+          />
 
-        <Route path="*" element={<NotFound />}></Route>
+          <Route
+            path="training"
+            element={
+              <PrivateRoute redirectTo="/register" component={<Training />} />
+            }
+          />
+          <Route
+            path="dictionary"
+            element={
+              <PrivateRoute redirectTo="/register" component={<Dictionary />} />
+            }
+          />
+          <Route
+            path="recommend"
+            element={
+              <PrivateRoute redirectTo="/register" component={<Recommend />} />
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
     </Suspense>
   );

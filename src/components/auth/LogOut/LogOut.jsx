@@ -8,7 +8,14 @@ const LogOut = () => {
   const handleClick = () => {
     dispatch(signoutThunk());
   };
-  return <button onClick={handleClick}>Log out</button>;
+  return (
+    <button onClick={handleClick}>
+      Log out{" "}
+      <svg>
+        <use href={`${svg}#icon-arrow-right`} />
+      </svg>
+    </button>
+  );
 };
 
 export default LogOut;

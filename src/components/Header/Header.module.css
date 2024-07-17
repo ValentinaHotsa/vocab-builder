@@ -1,0 +1,27 @@
+.logoContainer {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.logoIcon {
+  width: 36px;
+  height: 36px;
+}
+.logoText {
+  color: var(--black);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .logoIcon {
+    width: 40px;
+    height: 40px;
+  }
+  .logoText {
+    font-size: 22px;
+    line-height: 32px;
+  }
+}

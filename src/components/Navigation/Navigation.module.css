@@ -1,0 +1,18 @@
+.navWrap {
+  display: flex;
+  gap: 28px;
+}
+
+.navLink {
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+}
+
+.active {
+  color: var(--background-white);
+  background-color: var(--main-green);
+  border-radius: 15px;
+  padding: 12px 20px;
+}

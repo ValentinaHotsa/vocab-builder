@@ -21,7 +21,7 @@ const loginSchema = Yup.object().shape({
     ),
 });
 
-const LoginForm = ({ onSuccess }) => {
+const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -41,7 +41,6 @@ const LoginForm = ({ onSuccess }) => {
 
   const onSubmit = (data) => {
     dispatch(signinThunk(data));
-    onSuccess();
   };
 
   return (
