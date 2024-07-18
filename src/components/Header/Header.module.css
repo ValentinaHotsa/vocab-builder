@@ -22,7 +22,17 @@
   color: var(--black);
   font-size: 18px;
   font-weight: 600;
-  margin-top: 5px;
+  /* margin-top: 5px; */
+}
+
+.navUserContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.hidden {
+  display: none;
 }
 
 @media screen and (min-width: 900px) {

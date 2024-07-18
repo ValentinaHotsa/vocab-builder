@@ -25,7 +25,12 @@
 
 @media screen and (max-width: 768px) {
   .navWrap {
-    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  .navLink {
+    font-size: 18px;
+    padding: 10px 15px;
   }
 }
 

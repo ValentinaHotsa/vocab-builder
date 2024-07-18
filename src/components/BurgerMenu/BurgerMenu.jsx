@@ -23,8 +23,10 @@ const BurgerMenu = () => {
 
       {modalOpen && (
         <Modal onClose={closeModal}>
-          <Navigation />
-          <LogOut />
+          <div className={css.modalContent}>
+            <Navigation />
+            <LogOut />
+          </div>
         </Modal>
       )}
     </>

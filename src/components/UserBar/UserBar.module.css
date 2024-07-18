@@ -6,23 +6,41 @@
 }
 
 .userName {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 28px;
+  /* margin-top: 4px; */
 }
 
 .iconWrap {
   border-radius: 50%;
   background-color: var(--main-green);
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .iconUser {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
   fill: rgba(252, 252, 252, 0.7);
+}
+
+@media screen and (min-width: 900px) {
+  .userContainer {
+    gap: 8px;
+  }
+  .iconWrap {
+    width: 48px;
+    height: 48px;
+  }
+  .iconUser {
+    width: 18px;
+    height: 18px;
+  }
+  .userName {
+    font-size: 20px;
+  }
 }

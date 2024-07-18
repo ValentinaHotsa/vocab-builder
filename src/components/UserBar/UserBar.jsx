@@ -16,8 +16,8 @@ const UserBar = () => {
           <use href={`${svg}#icon-user`} />
         </svg>
       </div>
-      <LogOut />
-      <BurgerMenu />
+      {/* <LogOut /> */}
+      {/* <BurgerMenu /> */}
     </div>
   );
 };

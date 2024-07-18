@@ -34,5 +34,11 @@
 .headerContainer {
   width: 100%;
   background-color: #ffffff; /* Замените на нужный цвет */
-  padding: 20px 0;
+  padding: 16px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .headerContainer {
+    padding: 20px 0;
+  }
 }

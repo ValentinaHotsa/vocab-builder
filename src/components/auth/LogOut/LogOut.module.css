@@ -21,6 +21,6 @@
 
 @media screen and (max-width: 768px) {
   .button {
-    display: none;
+    /* display: none; */
   }
 }

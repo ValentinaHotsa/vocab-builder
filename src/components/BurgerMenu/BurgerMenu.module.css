@@ -1,6 +1,5 @@
 .button {
-  display: none;
-  background-color: transparent;
+  background: none;
   border: none;
 }
 .iconBurger {
@@ -9,8 +8,20 @@
   stroke: var(--black);
 }
 
-@media (max-width: 768px) {
-  .button {
-    display: block;
-  }
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* регулируйте по вашему усмотрению */
+}
+
+.navLink {
+  font-size: 20px; /* регулируйте по вашему усмотрению */
+  padding: 10px 15px;
 }

@@ -68,10 +68,10 @@
 <path stroke-width="3.2" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="round" d="M1.86 16h25.6"></path>
 <path stroke-width="3.2" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="round" d="M19.2 6.66l9.32 9.34-9.32 9.32"></path>
 </symbol>
-<symbol id="icon-burger" viewBox="0 0 43 32">
-<path stroke-width="2.6667" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="miter" d="M8.96 5.271h30.151"></path>
-<path stroke-width="2.6667" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="miter" d="M8.96 20.356h30.151"></path>
-<path stroke-width="2.6667" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="miter" d="M17.467 12.818h21.644"></path>
+<symbol id="icon-burger" viewBox="0 0 48 32">
+<path stroke-width="2.9091" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="miter" d="M7.069 6.778h39.476"></path>
+<path stroke-width="2.9091" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="miter" d="M7.069 26.182h39.476"></path>
+<path stroke-width="2.9091" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="miter" d="M18.211 16.48h28.335"></path>
 </symbol>
 </defs>
 </svg>
