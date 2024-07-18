@@ -3,13 +3,11 @@
   font-weight: 500;
   line-height: 24px;
   border: none;
-  background-color: transparent;
+  background: none;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 6px;
-  width: 81px;
-  height: 24px;
+  /* width: 81px; */
 }
 
 .icon {
@@ -17,10 +15,4 @@
   height: 16px;
   stroke: var(--black);
   fill: transparent;
-}
-
-@media screen and (max-width: 768px) {
-  .button {
-    /* display: none; */
-  }
 }

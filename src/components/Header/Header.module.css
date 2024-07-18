@@ -35,6 +35,19 @@
   display: none;
 }
 
+.navUserWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .navUserWrap {
+    gap: 16px;
+  }
+}
+
 @media screen and (min-width: 900px) {
   .logoIcon {
     width: 40px;

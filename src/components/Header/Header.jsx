@@ -10,9 +10,9 @@ import { useEffect, useState } from "react";
 
 const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767.9);
   const [isMinimumMobile, setIsMininmumMobile] = useState(
-    window.innerWidth <= 375
+    window.innerWidth <= 374.9
   );
 
   useEffect(() => {
@@ -34,6 +34,7 @@ const Header = () => {
         </svg>
         <span className={css.logoText}>VocabBuilder</span>
       </div>
+
       {isLoggedIn && (
         <>
           <div
@@ -41,26 +42,32 @@ const Header = () => {
           >
             <Navigation />
           </div>
-          <div
-            className={`${css.navUserContainer} ${
-              isMinimumMobile ? css.hidden : ""
-            }`}
-          >
-            <UserBar />
-          </div>
-          <div
-            className={`${css.navUserContainer} ${isMobile ? css.hidden : ""}`}
-          >
-            <LogOut />
+          <div className={css.navUserWrap}>
+            <div
+              className={`${css.navUserContainer} ${
+                isMinimumMobile ? css.hidden : ""
+              }`}
+            >
+              <UserBar />
+            </div>
+            <div
+              className={`${css.navUserContainer} ${
+                isMobile ? css.hidden : ""
+              }`}
+            >
+              <LogOut />
+            </div>
+            {isLoggedIn && (
+              <div
+                className={`${css.navUserContainer} ${
+                  !isMobile ? css.hidden : ""
+                }`}
+              >
+                <BurgerMenu />
+              </div>
+            )}
           </div>
         </>
-      )}
-      {isLoggedIn && (
-        <div
-          className={`${css.navUserContainer} ${!isMobile ? css.hidden : ""}`}
-        >
-          <BurgerMenu />
-        </div>
       )}
     </div>
   );
