@@ -9,7 +9,6 @@
   color: var(--black);
   font-size: 14px;
   font-weight: 500;
-  line-height: 19px;
 }
 
 .navLink.active {

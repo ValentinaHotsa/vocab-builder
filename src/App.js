@@ -5,13 +5,13 @@ import { RestrictedRoute } from "./routes/RestrictedRoute";
 import { refreshUserThunk } from "./redux/auth/operation";
 import { useDispatch } from "react-redux";
 
-const Main = lazy(() => import("./pages/MainPage"));
-const Login = lazy(() => import("./pages/LoginPage"));
-const Register = lazy(() => import("./pages/RegisterPage"));
+const Main = lazy(() => import("./pages/MainPage/MainPage"));
+const Login = lazy(() => import("./pages/LoginPage/LoginPage"));
+const Register = lazy(() => import("./pages/RegisterPage/RegisterPage"));
 const NotFound = lazy(() => import("./pages/NotFoundPage"));
-const Recommend = lazy(() => import("./pages/RecommendPage"));
-const Dictionary = lazy(() => import("./pages/DictionaryPage"));
-const Training = lazy(() => import("./pages/TrainingPage"));
+const Recommend = lazy(() => import("./pages/RecommendPage/RecommendPage"));
+const Dictionary = lazy(() => import("./pages/DictionaryPage/DictionaryPage"));
+const Training = lazy(() => import("./pages/TrainingPage/TrainingPage"));
 const SharedLayout = lazy(() =>
   import("./components/SharedLayout/SharedLayout")
 );
