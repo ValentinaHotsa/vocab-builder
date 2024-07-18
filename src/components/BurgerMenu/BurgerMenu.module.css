@@ -1,0 +1,16 @@
+.button {
+  display: none;
+  background-color: transparent;
+  border: none;
+}
+.iconBurger {
+  width: 40px;
+  height: 28px;
+  stroke: var(--black);
+}
+
+@media (max-width: 768px) {
+  .button {
+    display: block;
+  }
+}

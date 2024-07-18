@@ -1,6 +1,6 @@
 .navWrap {
   display: flex;
-  gap: 28px;
+  gap: 14px;
   justify-content: center;
   align-items: center;
 }
@@ -21,4 +21,16 @@
 
 .navLink:hover {
   color: var(--gray-text-color);
+}
+
+@media screen and (max-width: 768px) {
+  .navWrap {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .navWrap {
+    gap: 28px;
+  }
 }

@@ -1,7 +1,7 @@
 .headerContent {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 100px;
+  padding: 0 16px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -22,16 +22,15 @@
   color: var(--black);
   font-size: 18px;
   font-weight: 600;
-  line-height: 24px;
+  margin-top: 5px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 900px) {
   .logoIcon {
     width: 40px;
     height: 40px;
   }
   .logoText {
     font-size: 22px;
-    line-height: 32px;
   }
 }

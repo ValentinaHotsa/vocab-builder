@@ -3,6 +3,7 @@ import svg from "../../assets/icon.svg";
 import LogOut from "../auth/LogOut/LogOut";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/auth/selectors";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 const UserBar = () => {
   const userName = useSelector(selectUser);
@@ -16,6 +17,7 @@ const UserBar = () => {
         </svg>
       </div>
       <LogOut />
+      <BurgerMenu />
     </div>
   );
 };
