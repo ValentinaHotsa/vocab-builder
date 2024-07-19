@@ -1,4 +1,20 @@
 .containerForm {
+  padding: 32px 16px;
+  border-radius: 25px 25px 0px 0px;
+  background-color: var(--form-background);
+  width: 100%;
+  /* max-width: 628px; */
+}
+.titleForm {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.subtitle {
+  color: var(--gray-text-color-second);
+  font-size: 16px;
+  margin-bottom: 16px;
+  line-height: 24px;
 }
 .hiddenLabel {
   position: absolute;
@@ -11,25 +27,45 @@
   border: 0;
 }
 .loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 .containerInput {
   position: relative;
 }
 .input {
+  width: 100%;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: 15px;
+  height: 56px;
+  padding-left: 18px;
+  background-color: transparent;
 }
 .input::placeholder {
+  color: var(--black);
+  font-size: 16px;
 }
 .iconEye {
   position: absolute;
-  right: 10px;
-  /* stroke: ${theme.colors.black}; */
+
+  stroke: var(--black);
   fill: transparent;
-  width: 20px;
-  height: 20px;
-  top: 30%;
-  right: 19px;
+  width: 18px;
+  height: 18px;
+  top: 35%;
+  right: 21px;
 }
 .btnSubmit {
+  margin-top: 18px;
+  border-radius: 30px;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 700;
+  background-color: var(--main-green);
+  border: none;
+  height: 56px;
+  margin-bottom: 16px;
 }
 .btnSubmit:hover,
 .btnSubmit:focus,
@@ -38,5 +74,45 @@
 .errorMessage {
   /* position: absolute; */
 }
+
+.linkContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .link {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-decoration-line: underline;
+  color: var(--gray-text-color);
+}
+
+@media screen and (min-width: 375px) {
+  .containerForm {
+    width: 375px;
+  }
+  .titleForm {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .subtitle {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 32px;
+  }
+  .loginForm {
+    gap: 18px;
+  }
+  .btnSubmit {
+    margin-top: 14px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .containerForm {
+    width: 628px;
+    padding: 48px 64px;
+    border-radius: 30px;
+  }
 }

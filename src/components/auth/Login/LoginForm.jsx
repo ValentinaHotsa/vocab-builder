@@ -45,6 +45,10 @@ const LoginForm = () => {
 
   return (
     <div className={css.containerForm}>
+      <h4 className={css.titleForm}>Login</h4>
+      <p className={css.subtitle}>
+        Please enter your login details to continue using our service:
+      </p>
       <form className={css.loginForm} onSubmit={handleSubmit(onSubmit)}>
         <div className={css.containerInput}>
           <label className={css.hiddenLabel} htmlFor="email">
@@ -112,10 +116,11 @@ const LoginForm = () => {
           Login
         </button>
       </form>
-
-      <Link className={css.link} to="/register">
-        Register
-      </Link>
+      <div className={css.linkContainer}>
+        <Link className={css.link} to="/register">
+          Register
+        </Link>
+      </div>
     </div>
   );
 };

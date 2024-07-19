@@ -6,7 +6,7 @@ import { useState } from "react";
 import svg from "../../../assets/icon.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { signinThunk, signupThunk } from "../../../redux/auth/operation.js";
+import { signupThunk } from "../../../redux/auth/operation.js";
 
 const registerSchema = Yup.object().shape({
   name: Yup.string()
@@ -47,6 +47,11 @@ const RegisterForm = () => {
   };
   return (
     <div className={css.containerForm}>
+      <h4 className={css.titleForm}>Register</h4>
+      <p className={css.subtitle}>
+        To start using our services, please fill out the registration form
+        below. All fields are mandatory:
+      </p>
       <form className={css.registerForm} onSubmit={handleSubmit(onSubmit)}>
         <div className={css.containerInput}>
           <label className={css.hiddenLabel} htmlFor="name">
@@ -142,9 +147,11 @@ const RegisterForm = () => {
         </button>
       </form>
 
-      <Link className={css.link} to="/login">
-        Login
-      </Link>
+      <div className={css.linkContainer}>
+        <Link className={css.link} to="/login">
+          Login
+        </Link>
+      </div>
     </div>
   );
 };

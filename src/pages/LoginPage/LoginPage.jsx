@@ -7,7 +7,7 @@ const LoginPage = () => {
   return (
     <section className={css.sectionWrap}>
       <MainImage />
-      <LoginForm />;
+      <LoginForm />
     </section>
   );
 };

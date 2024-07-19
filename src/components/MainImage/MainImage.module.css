@@ -6,9 +6,13 @@
 }
 
 .imgThumb {
+  width: 247px;
+  height: 191px;
 }
 
 .mainImg {
+  width: 100%;
+  height: 100%;
 }
 
 .subtitle {
@@ -25,5 +29,12 @@
 @media screen and (min-width: 768px) and (max-width: 1439px) {
   .imgThumb {
     display: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .imgThumb {
+    width: 498px;
+    height: 435px;
   }
 }
