@@ -35,17 +35,29 @@
   position: relative;
 }
 .input {
+  font-size: 16px;
+  line-height: 1.5;
   width: 100%;
   border: 1px solid rgba(18, 20, 23, 0.1);
   border-radius: 15px;
   height: 56px;
   padding-left: 18px;
   background-color: transparent;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input:hover,
+.input:focus,
+.input:active {
+  border-color: var(--main-green);
 }
 .input::placeholder {
   color: var(--black);
-  font-size: 16px;
+  opacity: 1;
+  font-family: MacPaw Fixel Display;
 }
+
 .iconEye {
   position: absolute;
 
@@ -66,15 +78,44 @@
   border: none;
   height: 56px;
   margin-bottom: 16px;
+  transition: background-color 0.3s ease;
 }
 .btnSubmit:hover,
 .btnSubmit:focus,
 .btnSubmit:active {
+  background-color: var(--hover-green);
 }
-.errorMessage {
-  /* position: absolute; */
+.validationContainer {
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  display: flex;
+  gap: 5px;
 }
 
+.errorMessage {
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--form-error);
+}
+.successMessage {
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  color: var(--form-success);
+}
+.error {
+  border-color: var(--form-error);
+}
+
+.valid {
+  border-color: var(--form-success);
+}
+.iconInput {
+  width: 14px;
+  height: 14px;
+}
 .linkContainer {
   display: flex;
   justify-content: center;
@@ -86,6 +127,13 @@
   line-height: 24px;
   text-decoration-line: underline;
   color: var(--gray-text-color);
+  transition: all 0.3s ease;
+}
+
+.link:hover,
+.link:active,
+.link:focus {
+  color: var(--black);
 }
 
 @media screen and (min-width: 375px) {

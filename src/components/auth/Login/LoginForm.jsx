@@ -56,7 +56,7 @@ const LoginForm = () => {
           </label>
           <input
             className={`${css.input} ${
-              dirtyFields.name ? (errors.name ? css.error : css.valid) : ""
+              errors.email ? css.error : dirtyFields.email ? css.valid : ""
             }`}
             {...register("email")}
             id="email"
@@ -72,7 +72,9 @@ const LoginForm = () => {
                   }`}
                 />
               </svg>
-              <span className={css.validationMessage}>
+              <span
+                className={errors.email ? css.errorMessage : css.successMessage}
+              >
                 {errors.email?.message || "Success email"}
               </span>
             </div>
@@ -84,7 +86,11 @@ const LoginForm = () => {
           </label>
           <input
             className={`${css.input} ${
-              dirtyFields.name ? (errors.name ? css.error : css.valid) : ""
+              errors.password
+                ? css.error
+                : dirtyFields.password
+                ? css.valid
+                : ""
             }`}
             id="password"
             {...register("password")}
@@ -105,7 +111,11 @@ const LoginForm = () => {
                   }`}
                 />
               </svg>
-              <span className={css.validationMessage}>
+              <span
+                className={
+                  errors.password ? css.errorMessage : css.successMessage
+                }
+              >
                 {errors.password?.message || "Success password"}
               </span>
             </div>

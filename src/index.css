@@ -8,7 +8,7 @@
   --gray-text-color: rgba(18, 20, 23, 0.5);
   --gray-text-color-second: rgba(18, 20, 23, 0.8);
   --main-green: #85aa9f;
-  --hover-grren: #a5c0b8;
+  --hover-green: #a5c0b8;
   --form-error: #d80027;
   --form-success: #3cbf61;
   --progress-full: #2bd627;
@@ -24,10 +24,10 @@ body {
   background-color: var(--white);
   width: 100%;
   height: 100vh;
-  font-family: "MacPaw Fixel Display", sans-serif;
-  /* font-family: "MacPaw Fixel Display", "SF Pro Display", -apple-system,
+  /* font-family: "MacPaw Fixel Display", sans-serif; */
+  font-family: "MacPaw Fixel Display", "SF Pro Display", -apple-system,
     BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; */
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--black);
