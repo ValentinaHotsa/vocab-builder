@@ -5,6 +5,7 @@ import {
   signupThunk,
   refreshUserThunk,
 } from "./operation";
+
 const initialState = {
   user: "",
   token: "",
