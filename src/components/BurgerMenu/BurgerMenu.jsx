@@ -7,12 +7,15 @@ import LogOut from "../auth/LogOut/LogOut";
 
 const BurgerMenu = () => {
   const [modalOpen, setModalOpen] = useState(false);
+
   const closeModal = () => {
     setModalOpen(false);
   };
+
   const handleClick = () => {
     setModalOpen(true);
   };
+
   return (
     <>
       <button className={css.button} type="button" onClick={handleClick}>
