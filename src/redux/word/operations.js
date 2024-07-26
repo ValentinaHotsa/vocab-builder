@@ -90,9 +90,11 @@ export const ownWords = createAsyncThunk(
 
 export const createWord = createAsyncThunk(
   "words/create",
-  async (credentials, { rejectWithValue }) => {
+  async (data, { rejectWithValue }) => {
     try {
-      const response = await axios.post("words/create", credentials);
+      const response = await axios.post("words/create", data);
+      console.log(response.data);
+      toast.success("A new word has been successfully created.");
       return response.data;
     } catch (error) {
       toast.error("Something went wrong, please try again!");
@@ -116,11 +118,9 @@ export const deleteWord = createAsyncThunk(
 
 export const editWord = createAsyncThunk(
   "words/edit",
-  async ({ wordsId, credentials }, { rejectWithValue }) => {
+  async ({ wordsId, data }, { rejectWithValue }) => {
     try {
-      const response = await axios.patch(`words/edit/${wordsId}`, {
-        ...credentials,
-      });
+      const response = await axios.patch(`words/edit/${wordsId}`, data);
       return response.data;
     } catch (error) {
       toast.error("Something went wrong, please try again!");

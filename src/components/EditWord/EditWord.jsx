@@ -1,57 +1,75 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import * as Yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { editWord } from "../../redux/word/operations";
 import css from "./EditWord.module.css";
 import Modal from "../Modal/Modal";
 
-const EditWord = ({ word }) => {
-  const dispatch = useDispatch();
-  const [en, setEn] = useState("");
-  const [ua, setUa] = useState("");
-  const [modalOpen, setModalOpen] = useState(false);
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-  const handleClick = () => {
-    setModalOpen(true);
-  };
+const editWordSchema = Yup.object().shape({
+  en: Yup.string()
+    .trim()
+    .required("Required")
+    .matches(/\b[A-Za-z'-]+(?:\s+[A-Za-z'-]+)*\b/, "Invalid English format"),
+  ua: Yup.string()
+    .trim()
+    .required("Required")
+    .matches(/^(?![A-Za-z])[А-ЯІЄЇҐґа-яієїʼ\s]+$/u, "Invalid Ukrainian format"),
+});
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(editWord({ wordsId: word._id, credentials: { en, ua } }));
-    closeModal();
+const EditWord = ({ word, onClose }) => {
+  const dispatch = useDispatch();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, dirtyFields },
+  } = useForm({ mode: "onChange", resolver: yupResolver(editWordSchema) });
+
+  const onSubmit = (data) => {
+    const editedWord = {
+      ...data,
+      category: word.category,
+    };
+    if (word.isIrregular !== undefined) {
+      editedWord.isIrregular = word.isIrregular;
+    }
+    console.log(editedWord);
+    dispatch(editWord({ wordsId: word._id, data: editedWord }));
+    onClose();
   };
 
   return (
-    <>
-      <button type="button" onClick={handleClick}>
-        Edit
-      </button>
-
-      {modalOpen && (
-        <Modal onClose={closeModal}>
+    <Modal onClose={onClose}>
+      <div>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                value={en}
-                onChange={(e) => setEn(e.target.value)}
-              />
-              <input
-                type="text"
-                value={ua}
-                onChange={(e) => setUa(e.target.value)}
-              />
-
-              <button type="submit">Save</button>
-              <button type="button" onClick={closeModal}>
-                Cancel
-              </button>
-            </form>
+            <input
+              {...register("en")}
+              type="text"
+              id="en"
+              defaultValue={word.en}
+            />
+            {errors.en && <p className={css.error}>{errors.en.message}</p>}
           </div>
-        </Modal>
-      )}
-    </>
+          <div>
+            <input
+              {...register("ua")}
+              type="text"
+              id="ua"
+              defaultValue={word.ua}
+            />
+            {errors.ua && <p className={css.error}>{errors.ua.message}</p>}
+          </div>
+
+          <button type="submit">Save</button>
+          <button type="button" onClick={onClose}>
+            Cancel
+          </button>
+        </form>
+      </div>
+    </Modal>
   );
 };
 

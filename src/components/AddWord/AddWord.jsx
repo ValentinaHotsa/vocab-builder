@@ -74,16 +74,12 @@ const AddWord = () => {
         <Modal onClose={closeModal}>
           <div>
             <h3>Add word</h3>
-            <form
-              onSubmit={handleSubmit((data) => {
-                console.log("Handle submit triggered");
-                onSubmit(data);
-              })}
-            >
+            <form onSubmit={handleSubmit(onSubmit)}>
               <Dropdown
                 defaultOption={defaultOption}
                 onSelect={handleCategoryChange}
                 options={categories}
+                // {...register("category")}
               />
 
               {category === "verb" && (

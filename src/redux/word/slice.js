@@ -87,7 +87,7 @@ const wordSlice = createSlice({
       .addCase(createWord.pending, handlePending)
       .addCase(createWord.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.ownWords = [action.payload, ...state.ownWords];
+        state.ownWords = [...state.ownWords, action.payload];
       })
       .addCase(createWord.rejected, handleRejected)
 

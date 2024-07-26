@@ -1,8 +1,14 @@
 import Popover from "@mui/material/Popover";
 import { useState } from "react";
+import EditWord from "../EditWord/EditWord";
 
 const WordMenu = ({ word, handleActions }) => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const [openEditModal, setEditModalOpen] = useState(false);
+
+  const closeEditModal = () => {
+    setEditModalOpen(false);
+  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -15,6 +21,7 @@ const WordMenu = ({ word, handleActions }) => {
 
   const handleEdit = () => {
     handleActions(word, "edit");
+    setEditModalOpen(true);
     handleClose();
   };
 
@@ -50,6 +57,7 @@ const WordMenu = ({ word, handleActions }) => {
           <button onClick={handleDelete}>Delete</button>
         </div>
       </Popover>
+      {openEditModal && <EditWord word={word} onClose={closeEditModal} />}
     </>
   );
 };
