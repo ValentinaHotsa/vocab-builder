@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Dashboard from "../../components/Dashboard/Dashboard";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTotalPages, selectWords } from "../../redux/word/selectors";
-import { fetchAllWords } from "../../redux/word/operations";
+import { fetchAllWords, addWord } from "../../redux/word/operations";
 import WordsTable from "../../components/WordsTable/WordsTable";
 import WordsPagination from "../../components/WordsPagination/WordsPagination";
 
@@ -38,12 +38,18 @@ const RecommendPage = () => {
     setCurrentPage(1);
   };
 
-  const handleActions = (word) => {};
+  const handleActions = (word) => {
+    dispatch(addWord(word._id));
+  };
 
   return (
     <>
       <Dashboard onFilterChange={handleFilterChange} />
-      <WordsTable words={words} handleActions={handleActions} />
+      <WordsTable
+        words={words}
+        handleActions={handleActions}
+        actionType="recommend"
+      />
       <WordsPagination
         currentPage={currentPage}
         totalPages={totalPages}

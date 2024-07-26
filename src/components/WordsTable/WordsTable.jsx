@@ -5,19 +5,32 @@ import { selectWords } from "../../redux/word/selectors";
 import { fetchAllWords } from "../../redux/word/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useMemo } from "react";
+import WordMenu from "../WordMenu/WordMenu";
 
-const WordsTable = ({ words, handleActions }) => {
+const WordsTable = ({ words, handleActions, actionType }) => {
   const dispatch = useDispatch();
-  // const words = useSelector(selectWords);
-
-  // useEffect(() => {
-  //   dispatch(fetchAllWords({ page: 1, search: "", category: "all", verb: "" }));
-  // }, [dispatch]);
 
   const data = useMemo(() => words, [words]);
 
-  const columns = useMemo(
-    () => [
+  const columns = useMemo(() => {
+    const actionColumn = {
+      Header: "Actions",
+      accessor: "actions",
+      Cell: ({ row }) => {
+        if (actionType === "dictionary") {
+          return <WordMenu word={row.original} handleActions={handleActions} />;
+        } else if (actionType === "recommend") {
+          return (
+            <button onClick={() => handleActions(row.original, "add")}>
+              Add to dictionary
+            </button>
+          );
+        }
+        return null;
+      },
+    };
+
+    return [
       {
         Header: "English",
         accessor: "en",
@@ -34,17 +47,9 @@ const WordsTable = ({ words, handleActions }) => {
         Header: "Progress",
         accessor: "progress",
       },
-      {
-        Header: "Actions",
-        accessor: "actions",
-        Cell: ({ row }) => (
-          <button onClick={() => handleActions(row.original)}>...</button>
-        ),
-      },
-    ],
-    [handleActions]
-  );
-
+      actionColumn,
+    ];
+  }, [handleActions, actionType]);
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data });
 

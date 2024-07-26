@@ -82,6 +82,7 @@ const Filters = ({ onFilterChange }) => {
           <input
             type="radio"
             value="false"
+            name="verbType"
             checked={verbType === "false"}
             onChange={handleVerbTypeChange}
           />
@@ -89,6 +90,7 @@ const Filters = ({ onFilterChange }) => {
           <input
             type="radio"
             value="true"
+            name="verbType"
             checked={verbType === "true"}
             onChange={handleVerbTypeChange}
           />

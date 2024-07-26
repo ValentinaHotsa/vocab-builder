@@ -10,7 +10,11 @@ import {
   selectTotalPages,
   selectWords,
 } from "../../redux/word/selectors";
-import { fetchAllWords, ownWords } from "../../redux/word/operations";
+import {
+  deleteWord,
+  fetchAllWords,
+  ownWords,
+} from "../../redux/word/operations";
 import WordsPagination from "../../components/WordsPagination/WordsPagination";
 
 const DictionaryPage = () => {
@@ -49,12 +53,28 @@ const DictionaryPage = () => {
   //   return <p>В вашому словнику ще немає слів.</p>;
   // }
 
-  const handleAction = (word) => {};
+  const handleActions = (word, actionType) => {
+    switch (actionType) {
+      case "edit":
+        console.log(`edit: ${word._id}`);
+        break;
+      case "delete":
+        dispatch(deleteWord(word._id));
+
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <div>
       <Dashboard onFilterChange={handleFilterChange} />
-      <WordsTable words={words} handleAction={handleAction} />
+      <WordsTable
+        words={words}
+        handleActions={handleActions}
+        actionType="dictionary"
+      />
       <WordsPagination
         currentPage={currentPage}
         totalPages={totalPages}

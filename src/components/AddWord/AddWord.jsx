@@ -37,42 +37,32 @@ const AddWord = () => {
   const categories = useSelector(selectCategories);
   const [category, setCategory] = useState("");
 
-  const [en, setEn] = useState("");
-  const [ua, setUa] = useState("");
-  // const [verbType, setVerbType] = useState("");
+  const [verbType, setVerbType] = useState("false");
 
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors, dirtyFields },
   } = useForm({ mode: "onChange", resolver: yupResolver(wordSchema) });
 
   const onSubmit = (data) => {
-    // if (data.category === "verb") {
-    //   setValue("isIrregular", verbType === "irregular");
-    // }
+    console.log("Submitting data", data);
+    const fullData = {
+      ...data,
 
-    dispatch(createWord(data));
+      isIrregular: category === "verb" ? verbType === "false" : undefined,
+    };
+    console.log("Full data to submit:", fullData);
+    dispatch(createWord(fullData));
     closeModal();
   };
   const handleCategoryChange = (option) => {
     setCategory(option);
   };
 
-  // const handleVerbTypeChange = (e) => {
-  //   setVerbType(e.target.value);
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (selectCategory === "verb" && !verbType) {
-  //     alert("Please select a verb type");
-  //     return;
-  //   }
-  //   dispatch(createWord({ en, ua, selectCategory, verbType }));
-  //   closeModal();
-  // };
+  const handleVerbTypeChange = (e) => {
+    setVerbType(e.target.value);
+  };
 
   return (
     <>
@@ -84,7 +74,12 @@ const AddWord = () => {
         <Modal onClose={closeModal}>
           <div>
             <h3>Add word</h3>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form
+              onSubmit={handleSubmit((data) => {
+                console.log("Handle submit triggered");
+                onSubmit(data);
+              })}
+            >
               <Dropdown
                 defaultOption={defaultOption}
                 onSelect={handleCategoryChange}
@@ -95,35 +90,31 @@ const AddWord = () => {
                 <div>
                   <input
                     type="radio"
-                    value="regular"
-                    // checked={verbType === "regular"}
-                    // onChange={handleVerbTypeChange}
+                    value="false"
+                    name="verbType"
+                    checked={verbType === "false"}
+                    onChange={handleVerbTypeChange}
                   />
                   Regular
                   <input
                     type="radio"
-                    value="irregular"
-                    // checked={verbType === "irregular"}
-                    // onChange={handleVerbTypeChange}
+                    value="true"
+                    name="verbType"
+                    checked={verbType === "true"}
+                    onChange={handleVerbTypeChange}
                   />
                   Irregular
                 </div>
               )}
 
-              <input
-                {...register("en")}
-                type="text"
-                id="en"
-                // value={en}
-                // onChange={(e) => setEn(e.target.value)}
-              />
-              <input
-                {...register("ua")}
-                type="text"
-                id="ua"
-                // value={ua}
-                // onChange={(e) => setUa(e.target.value)}
-              />
+              <div>
+                <input {...register("en")} type="text" id="en" />
+                {errors.en && <p className={css.error}>{errors.en.message}</p>}
+              </div>
+              <div>
+                <input {...register("ua")} type="text" id="ua" />
+                {errors.ua && <p className={css.error}>{errors.ua.message}</p>}
+              </div>
               <button type="submit">Add word</button>
               <button type="button" onClick={closeModal}>
                 Cancel
