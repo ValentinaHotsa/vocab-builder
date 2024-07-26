@@ -5,14 +5,13 @@ import Statistics from "../Statistics/Statistics";
 import WordsTable from "../WordsTable/WordsTable";
 import css from "./Dashboard.module.css";
 
-const Dashboard = () => {
+const Dashboard = ({ onFilterChange }) => {
   return (
     <div>
-      <Filters />
+      <Filters onFilterChange={onFilterChange} />
       <Statistics />
       <AddWord />
       <Link to="/training">Train oneself</Link>
-      <WordsTable />
     </div>
   );
 };

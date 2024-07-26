@@ -29,7 +29,7 @@ const initialState = {
   //   tacks: [],
   page: null,
   totalPages: null,
-  totalPage2: null,
+  // totalPage2: null,
   perPage: null,
   isLoading: false,
   error: null,
@@ -53,7 +53,7 @@ const wordSlice = createSlice({
         state.words = action.payload.results;
         state.page = action.payload.page;
         state.totalPages = action.payload.totalPages;
-        state.totalPage2 = action.payload.results;
+        // state.totalPage2 = action.payload.results;
         state.perPage = action.payload.perPage;
       })
       .addCase(fetchAllWords.rejected, handleRejected)

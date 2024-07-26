@@ -34,19 +34,25 @@ export const fetchCategories = createAsyncThunk(
 
 export const fetchAllWords = createAsyncThunk(
   "words/all",
-  async ({ page, search, category, verb }, { rejectWithValue }) => {
+  async ({ page, search, category, verbType }, { rejectWithValue }) => {
     try {
-      if (category === "all") {
-        const response = await axios.get(
-          `words/all?keyword=${search}&page=${page}`
-        );
-        return response.data;
-      } else {
-        const response = await axios.get(
-          `words/all?keyword=${search}&category=${category}&isIrregular=${verb}&page=${page}`
-        );
-        return response.data;
+      let url = `words/all?keyword=${search}&page=${page}`;
+
+      if (category !== "all") {
+        url += `&category=${category}`;
+        if (category === "verb") {
+          // console.log("Checking verbType inside fetchAllWords:", verbType); // Перевірте це
+          if (verbType !== undefined) {
+            // console.log("Appending isIrregular to URL:", verbType);
+            url += `&isIrregular=${verbType}`;
+          } else {
+            // console.log("verbType is undefined");
+          }
+        }
       }
+      // console.log("URL being requested:", url);
+      const response = await axios.get(url);
+      return response.data;
     } catch (error) {
       toast.error("Something went wrong, please try again!");
       return rejectWithValue(error.message);
@@ -56,19 +62,25 @@ export const fetchAllWords = createAsyncThunk(
 
 export const ownWords = createAsyncThunk(
   "words/own",
-  async ({ page, search, category, verb }, { rejectWithValue }) => {
+  async ({ page, search, category, verbType }, { rejectWithValue }) => {
     try {
-      if (category === "all") {
-        const response = await axios.get(
-          `words/own?keyword=${search}&page=${page}`
-        );
-        return response.data;
-      } else {
-        const response = await axios.get(
-          `words/own?keyword=${search}&category=${category}&isIrregular=${verb}&page=${page}`
-        );
-        return response.data;
+      let url = `words/own?keyword=${search}&page=${page}`;
+
+      if (category !== "all") {
+        url += `&category=${category}`;
+        if (category === "verb") {
+          // console.log("Checking verbType inside fetchAllWords:", verbType); // Перевірте це
+          if (verbType !== undefined) {
+            // console.log("Appending isIrregular to URL:", verbType);
+            url += `&isIrregular=${verbType}`;
+          } else {
+            // console.log("verbType is undefined");
+          }
+        }
       }
+      // console.log("URL being requested:", url);
+      const response = await axios.get(url);
+      return response.data;
     } catch (error) {
       toast.error("Something went wrong, please try again!");
       return rejectWithValue(error.message);
