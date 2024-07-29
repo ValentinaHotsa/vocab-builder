@@ -1,0 +1,138 @@
+.containerForm {
+  width: 100%;
+}
+.containerFormEdit {
+  width: 100%;
+}
+.title {
+  color: var(--background-white);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.subtitle {
+  color: rgba(252, 252, 252, 0.8);
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.label {
+  color: var(--background-white);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.countryIcon {
+  width: 28px;
+  height: 28px;
+}
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.input {
+  height: 48px;
+  padding-left: 24px;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid rgb(209, 213, 219);
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--background-white);
+}
+.btnWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-top: 32px;
+}
+.btnAdd {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--black);
+  background-color: var(--background-white);
+  border: none;
+  border-radius: 30px;
+  width: 159px;
+  height: 48px;
+  transition: all 0.3s ease;
+}
+.btnAdd:hover,
+.btnAdd:focus,
+.btnAdd:active {
+  color: var(--main-green);
+}
+.btnCancel {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--background-white);
+  border: 1px solid rgba(252, 252, 252, 0.4);
+  border-radius: 30px;
+  width: 159px;
+  height: 48px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+.btnCancel:hover,
+.btnCancel:focus,
+.btnCancel:active {
+  color: var(--black);
+}
+.error {
+  position: absolute;
+  font-size: 12px;
+  top: 87px;
+  right: 5px;
+  color: rgba(252, 252, 252, 0.8);
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+  .subtitle {
+    font-size: 20px;
+  }
+  .inputContainer {
+    flex-direction: row-reverse;
+    justify-content: start;
+    gap: 32px;
+    margin-bottom: 18px;
+  }
+  .containerFormEdit {
+    padding: 16px 0;
+  }
+  .countryIcon {
+    width: 32px;
+    height: 32px;
+  }
+  .input {
+    width: 354px;
+    height: 56px;
+  }
+  .label {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .btnAdd {
+    width: 245px;
+    height: 56px;
+  }
+  .btnCancel {
+    width: 245px;
+    height: 56px;
+  }
+}

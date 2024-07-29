@@ -15,37 +15,53 @@
 }
 
 .modalWrap {
+  background-color: var(--main-green);
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  background: white;
-  padding: 30px;
-  max-height: 100vh;
-  flex-direction: column;
 
-  /* @media screen and (min-width: 500px) {
-    max-width: 982px;
-    padding: 64px; */
-  /* } */
+  padding: 48px 16px;
+  width: 288px;
+
+  flex-direction: column;
 }
 
 .btnClose {
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 16px;
+  top: 16px;
   display: block;
   border: none;
   background-color: transparent;
   cursor: pointer;
   text-align: center;
-  width: 32px;
-  height: 32px;
 }
 
 .iconClose {
-  width: 26px;
-  height: 26px;
-  stroke: var(--black);
+  width: 24px;
+  height: 24px;
+  stroke: var(--white);
+}
+
+@media screen and (min-width: 375px) {
+  .modalWrap {
+    width: 343px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modalWrap {
+    width: 628px;
+    padding: 48px 64px;
+  }
+  .btnClose {
+    right: 20px;
+    top: 20px;
+  }
+  .iconClose {
+    width: 32px;
+    height: 32px;
+  }
 }

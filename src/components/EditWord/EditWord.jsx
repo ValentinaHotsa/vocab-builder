@@ -4,17 +4,18 @@ import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { editWord } from "../../redux/word/operations";
-import css from "./EditWord.module.css";
+import css from "../AddWord/AddWord.module.css";
 import Modal from "../Modal/Modal";
+import svg from "../../assets/icon.svg";
 
 const editWordSchema = Yup.object().shape({
   en: Yup.string()
     .trim()
-    .required("Required")
+    .required("English word is required")
     .matches(/\b[A-Za-z'-]+(?:\s+[A-Za-z'-]+)*\b/, "Invalid English format"),
   ua: Yup.string()
     .trim()
-    .required("Required")
+    .required("Ukrainian word is required")
     .matches(/^(?![A-Za-z])[А-ЯІЄЇҐґа-яієїʼ\s]+$/u, "Invalid Ukrainian format"),
 });
 
@@ -42,31 +43,48 @@ const EditWord = ({ word, onClose }) => {
 
   return (
     <Modal onClose={onClose}>
-      <div>
+      <div className={css.containerFormEdit}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <input
-              {...register("en")}
-              type="text"
-              id="en"
-              defaultValue={word.en}
-            />
-            {errors.en && <p className={css.error}>{errors.en.message}</p>}
-          </div>
-          <div>
+          <div className={css.inputContainer}>
+            <label htmlFor="ua" className={css.label}>
+              <svg className={css.countryIcon}>
+                <use href={`${svg}#icon-ukraine`} />
+              </svg>
+              Ukrainian
+            </label>
             <input
               {...register("ua")}
               type="text"
               id="ua"
               defaultValue={word.ua}
+              className={css.input}
             />
             {errors.ua && <p className={css.error}>{errors.ua.message}</p>}
           </div>
-
-          <button type="submit">Save</button>
-          <button type="button" onClick={onClose}>
-            Cancel
-          </button>
+          <div className={css.inputContainer}>
+            <label htmlFor="en" className={css.label}>
+              <svg className={css.countryIcon}>
+                <use href={`${svg}#icon-en`} />
+              </svg>
+              English
+            </label>
+            <input
+              {...register("en")}
+              type="text"
+              id="en"
+              defaultValue={word.en}
+              className={css.input}
+            />
+            {errors.en && <p className={css.error}>{errors.en.message}</p>}
+          </div>
+          <div className={css.btnWrapper}>
+            <button className={css.btnAdd} type="submit">
+              Save
+            </button>
+            <button className={css.btnCancel} type="button" onClick={onClose}>
+              Cancel
+            </button>
+          </div>
         </form>
       </div>
     </Modal>
