@@ -1,0 +1,113 @@
+.dropdownFilter {
+  position: relative;
+  width: 343px;
+}
+
+.headerFilter {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: 15px;
+  color: var(--black);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+}
+
+.headerFilter svg {
+  width: 15px;
+  height: 10px;
+}
+
+.listFilter {
+  position: absolute;
+  width: 100%;
+  margin-top: 10px;
+  overflow-y: auto;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 47px 0px rgba(18, 20, 23, 0.08);
+  background: rgb(255, 255, 255);
+  z-index: 1000;
+}
+
+/* .listFilter ul {
+  height: 368px;
+} */
+
+.listFilter li {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.listFilter li:last-child {
+  margin-bottom: 0;
+}
+
+.dropdownAddWord {
+  position: relative;
+  width: 311px;
+  margin-bottom: 9px;
+}
+
+.headerAddWord {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  border: 1px solid rgba(252, 252, 252, 0.3);
+  border-radius: 15px;
+  color: var(--white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+}
+
+.headerAddWord svg {
+  fill: var(--white);
+  width: 15px;
+  height: 10px;
+}
+
+.listAddWord {
+  position: absolute;
+  width: 205px;
+  margin-top: 10px;
+  overflow-y: auto;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 47px 0px rgba(18, 20, 23, 0.08);
+  background: rgb(255, 255, 255);
+  z-index: 1000;
+  height: 240px;
+  /* scrollbar-width: thin;
+  scrollbar-color: var(--white); */
+}
+
+.listAddWord li {
+  color: var(--gray-text-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.listAddWord li:last-child {
+  margin-bottom: 0;
+}
+
+.listAddWord li:hover,
+.listAddWord li:checked,
+.listAddWord li:active,
+.listAddWord li:focus {
+  color: var(--main-green);
+}

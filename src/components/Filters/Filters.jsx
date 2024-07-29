@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import debounce from "lodash.debounce";
 import { fetchCategories } from "../../redux/word/operations";
 import Dropdown from "../Dropdown/Dropdown";
-
+import style from "../Dropdown/Dropdown.module.css";
 const Filters = ({ onFilterChange }) => {
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
@@ -75,6 +75,9 @@ const Filters = ({ onFilterChange }) => {
         defaultOption="Categories"
         onSelect={handleCategoryChange}
         options={categories}
+        className={style.dropdownFilter}
+        dropHeader={style.headerFilter}
+        dropList={style.listFilter}
       />
 
       {category === "verb" && (

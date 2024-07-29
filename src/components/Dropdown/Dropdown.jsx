@@ -1,6 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
+import svg from "../../assets/icon.svg";
 
-const Dropdown = ({ defaultOption, onSelect, options }) => {
+const Dropdown = ({
+  defaultOption,
+  onSelect,
+  options,
+  className,
+  dropHeader,
+  dropList,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(defaultOption);
   const dropdownRef = useRef(null);
@@ -27,16 +35,25 @@ const Dropdown = ({ defaultOption, onSelect, options }) => {
     setSelectedOption(defaultOption);
   }, [defaultOption]);
 
+  const upperCaseFirstLetter = (text) => {
+    return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+  };
+
   return (
-    <div ref={dropdownRef}>
-      <div onClick={() => setIsOpen(!isOpen)}>{selectedOption}</div>
+    <div ref={dropdownRef} className={className}>
+      <div className={dropHeader} onClick={() => setIsOpen(!isOpen)}>
+        {upperCaseFirstLetter(selectedOption)}
+        <svg>
+          <use href={`${svg}#icon-down`} />
+        </svg>
+      </div>
 
       {isOpen && (
-        <div>
+        <div className={dropList}>
           <ul>
             {options.map((option) => (
               <li key={option} onClick={() => handleSelectOption(option)}>
-                {option}
+                {upperCaseFirstLetter(option)}
               </li>
             ))}
           </ul>

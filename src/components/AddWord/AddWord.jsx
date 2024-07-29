@@ -9,6 +9,7 @@ import { selectCategories } from "../../redux/word/selectors";
 import { createWord } from "../../redux/word/operations";
 import Dropdown from "../Dropdown/Dropdown";
 import svg from "../../assets/icon.svg";
+import style from "../Dropdown/Dropdown.module.css";
 
 const wordSchema = Yup.object().shape({
   en: Yup.string()
@@ -106,6 +107,9 @@ const AddWord = () => {
                   setValue("category", option);
                 }}
                 options={categories}
+                className={style.dropdownAddWord}
+                dropHeader={style.headerAddWord}
+                dropList={style.listAddWord}
               />
 
               {selectedCategory === "verb" && (
