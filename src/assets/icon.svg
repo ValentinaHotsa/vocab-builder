@@ -45,7 +45,7 @@
 </symbol>
 <symbol id="icon-search" viewBox="0 0 32 32">
 <path stroke-width="2.4" stroke-miterlimit="4" stroke-linecap="butt" stroke-linejoin="round" d="M14.656 25.328c-5.888 0-10.656-4.784-10.656-10.672s4.768-10.656 10.656-10.656c5.888 0 10.672 4.768 10.672 10.656s-4.784 10.672-10.672 10.672z"></path>
-<path stroke-width="2.4" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="round" d="M22.192 22.192h5.808"></path>
+<path stroke-width="2.4" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="round" d="M28 28l-5.808-5.808"></path>
 </symbol>
 <symbol id="icon-trash" viewBox="0 0 32 32">
 <path stroke-width="2.88" stroke-miterlimit="4" stroke-linecap="butt" stroke-linejoin="round" d="M12 4h8M13.328 14v6.656M18.656 14v6.656"></path>

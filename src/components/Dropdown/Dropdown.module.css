@@ -6,6 +6,7 @@
 .headerFilter {
   font-size: 16px;
   font-weight: 500;
+  height: 48px;
   line-height: 1.5;
   border: 1px solid rgba(18, 20, 23, 0.1);
   border-radius: 15px;

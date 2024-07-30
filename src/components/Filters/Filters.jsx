@@ -6,6 +6,8 @@ import debounce from "lodash.debounce";
 import { fetchCategories } from "../../redux/word/operations";
 import Dropdown from "../Dropdown/Dropdown";
 import style from "../Dropdown/Dropdown.module.css";
+import svg from "../../assets/icon.svg";
+
 const Filters = ({ onFilterChange }) => {
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
@@ -31,11 +33,6 @@ const Filters = ({ onFilterChange }) => {
     debounceSearch(value);
   };
 
-  // const handleCategoryChange = (option) => {
-  //   setCategory(option);
-  //   setVerbType("");
-  //   onFilterChange({ search, category: option, verbType: "" });
-  // };
   useEffect(() => {
     if (category === "verb") {
       onFilterChange({ search, category, verbType });
@@ -64,13 +61,19 @@ const Filters = ({ onFilterChange }) => {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={search}
-        onChange={handleSearchChange}
-        placeholder="Find the word"
-      />
+    <div className={css.filterContainer}>
+      <div className={css.inputContainer}>
+        <input
+          className={css.input}
+          type="text"
+          value={search}
+          onChange={handleSearchChange}
+          placeholder="Find the word"
+        />
+        <svg className={css.icon}>
+          <use href={`${svg}#icon-search`} />
+        </svg>
+      </div>
       <Dropdown
         defaultOption="Categories"
         onSelect={handleCategoryChange}
@@ -80,8 +83,10 @@ const Filters = ({ onFilterChange }) => {
         dropList={style.listFilter}
       />
 
-      {category === "verb" && (
-        <div>
+      {/* {category === "verb" && ( */}
+      <div className={css.btnWrap}>
+        <label className={css.radioContainer}>
+          Regular
           <input
             type="radio"
             value="false"
@@ -89,7 +94,11 @@ const Filters = ({ onFilterChange }) => {
             checked={verbType === "false"}
             onChange={handleVerbTypeChange}
           />
-          Regular
+          <span className={css.checkmark}></span>
+        </label>
+
+        <label className={css.radioContainer}>
+          Irregular
           <input
             type="radio"
             value="true"
@@ -97,9 +106,10 @@ const Filters = ({ onFilterChange }) => {
             checked={verbType === "true"}
             onChange={handleVerbTypeChange}
           />
-          Irregular
-        </div>
-      )}
+          <span className={css.checkmark}></span>
+        </label>
+      </div>
+      {/* )} */}
     </div>
   );
 };

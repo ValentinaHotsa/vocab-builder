@@ -113,22 +113,25 @@ const AddWord = () => {
               />
 
               {selectedCategory === "verb" && (
-                <div>
-                  <label>
+                <div className={css.btnWrap}>
+                  <label className={css.radioContainer}>
+                    Regular
                     <input
                       type="radio"
                       value="true"
                       {...register("isIrregular")}
                     />
-                    Regular
+                    <span className={css.checkmark}></span>
                   </label>
-                  <label>
+
+                  <label className={css.radioContainer}>
+                    Irregular
                     <input
                       type="radio"
                       value="false"
                       {...register("isIrregular")}
                     />
-                    Irregular
+                    <span className={css.checkmark}></span>
                   </label>
                 </div>
               )}

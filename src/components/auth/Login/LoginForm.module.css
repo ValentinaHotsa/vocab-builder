@@ -55,7 +55,7 @@
 .input::placeholder {
   color: var(--black);
   opacity: 1;
-  font-family: MacPaw Fixel Display;
+  font-family: "FixelDisplay";
 }
 
 .iconEye {
