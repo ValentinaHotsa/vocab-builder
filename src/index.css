@@ -113,6 +113,10 @@ button {
 
 * {
   box-sizing: border-box;
+  font-family: inherit;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  vertical-align: middle;
 }
 
 #root {

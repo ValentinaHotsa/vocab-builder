@@ -1,6 +1,8 @@
 import Popover from "@mui/material/Popover";
 import { useState } from "react";
 import EditWord from "../EditWord/EditWord";
+import svg from "../../assets/icon.svg";
+import css from "./WordMenu.module.css";
 
 const WordMenu = ({ word, handleActions }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -35,8 +37,14 @@ const WordMenu = ({ word, handleActions }) => {
 
   return (
     <>
-      <button aria-describedby={id} onClick={handleClick}>
-        ...
+      <button
+        aria-describedby={id}
+        onClick={handleClick}
+        className={css.button}
+      >
+        <svg className={css.icon}>
+          <use href={`${svg}#icon-dots`} />
+        </svg>
       </button>
       <Popover
         id={id}
@@ -51,10 +59,21 @@ const WordMenu = ({ word, handleActions }) => {
           vertical: "top",
           horizontal: "right",
         }}
+        classes={{ paper: css.customPaper }}
       >
-        <div>
-          <button onClick={handleEdit}>Edit</button>
-          <button onClick={handleDelete}>Delete</button>
+        <div className={css.btnWrap}>
+          <button onClick={handleEdit} className={css.menuBtn}>
+            <svg className={css.menuIcon}>
+              <use href={`${svg}#icon-pen`} />
+            </svg>
+            Edit
+          </button>
+          <button onClick={handleDelete} className={css.menuBtn}>
+            <svg className={css.menuIcon}>
+              <use href={`${svg}#icon-trash`} />
+            </svg>
+            Delete
+          </button>
         </div>
       </Popover>
       {openEditModal && <EditWord word={word} onClose={closeEditModal} />}

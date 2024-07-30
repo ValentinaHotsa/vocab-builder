@@ -87,8 +87,11 @@ const AddWord = () => {
 
   return (
     <>
-      <button type="button" onClick={handleClick}>
-        Add Word
+      <button type="button" onClick={handleClick} className={css.button}>
+        Add word
+        <svg className={css.iconPlus}>
+          <use href={`${svg}#icon-plus`} />
+        </svg>
       </button>
 
       {modalOpen && (

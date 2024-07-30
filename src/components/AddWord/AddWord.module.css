@@ -1,3 +1,29 @@
+.button {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  display: flex;
+  gap: 8px;
+  border: none;
+  background-color: transparent;
+  transition: all 0.4s ease;
+}
+
+.button:hover .iconPlus {
+  transform: rotate(90deg);
+}
+
+.button:hover {
+  color: var(--gray-text-color);
+}
+
+.iconPlus {
+  width: 20px;
+  height: 20px;
+  stroke: var(--main-green);
+  transition: transform 0.4s ease;
+}
+
 .containerForm {
   width: 100%;
 }

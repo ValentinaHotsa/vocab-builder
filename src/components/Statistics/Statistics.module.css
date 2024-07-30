@@ -1,0 +1,28 @@
+.wrap {
+  display: flex;
+  gap: 8px;
+  /* align-items: center; */
+}
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--gray-text-color);
+}
+
+.count {
+  color: var(--black);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .count {
+    line-height: 1.3;
+  }
+}
