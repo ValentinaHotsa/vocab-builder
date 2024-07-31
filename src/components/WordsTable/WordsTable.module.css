@@ -5,8 +5,7 @@
 .table {
   background-color: var(--background-white);
   border-collapse: collapse;
-  font-weight: 500;
-  line-height: 1.4;
+
   width: 100%;
 }
 
@@ -17,12 +16,15 @@
   border-bottom: 1px solid rgb(219, 219, 219);
   background-color: var(--form-background);
   font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .tableHeader span {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: end;
 }
 .tableHeader:first-child {
   border-radius: 8px 0 0 0;
@@ -39,6 +41,13 @@
   padding: 14px 8px;
   border-bottom: 1px solid rgb(219, 219, 219);
   font-size: 12px;
+  text-transform: capitalize;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 .tableItem:not(:last-child) {
   border-right: 1px solid rgb(219, 219, 219);
@@ -78,19 +87,19 @@
   transform: rotate(360deg);
 }
 
-.columnWord {
+.tableHeader:nth-child(1) {
   max-width: 90px;
 }
-.columnTranslation {
+.tableHeader:nth-child(2) {
   max-width: 116px;
 }
-.columnCategory {
+.tableHeader:nth-child(3) {
   max-width: 99px;
 }
-.columnProgress {
+.tableHeader:nth-child(4) {
   max-width: 99px;
 }
-.columnActions {
+.tableHeader:nth-child(5) {
   max-width: 38px;
 }
 
@@ -98,19 +107,19 @@
   .table {
     width: 343px;
   }
-  .columnWord {
+  .tableHeader:nth-child(1) {
     width: 90px;
   }
-  .columnTranslation {
+  .tableHeader:nth-child(2) {
     width: 116px;
   }
-  .columnCategory {
+  .tableHeader:nth-child(3) {
     width: 99px;
   }
-  .columnProgress {
+  .tableHeader:nth-child(4) {
     width: 99px;
   }
-  .columnActions {
+  .tableHeader:nth-child(5) {
     width: 38px;
   }
   .tableHeader {
@@ -130,19 +139,19 @@
     border-radius: 15px;
     background-color: var(--pure-white);
   }
-  .columnWord {
+  .tableHeader:nth-child(1) {
     width: 160px;
   }
-  .columnTranslation {
+  .tableHeader:nth-child(2) {
     width: 169px;
   }
-  .columnCategory {
+  .tableHeader:nth-child(3) {
     width: 151px;
   }
-  .columnProgress {
+  .tableHeader:nth-child(4) {
     width: 122px;
   }
-  .columnActions {
+  .tableHeader:nth-child(5) {
     width: 66px;
   }
   .iconCountry {
@@ -170,19 +179,19 @@
   .table {
     width: 1204px;
   }
-  .columnWord {
+  .tableHeader:nth-child(1) {
     width: 279px;
   }
-  .columnTranslation {
+  .tableHeader:nth-child(2) {
     width: 274px;
   }
-  .columnCategory {
+  .tableHeader:nth-child(3) {
     width: 161px;
   }
-  .columnProgress {
+  .tableHeader:nth-child(4) {
     width: 255px;
   }
-  .columnActions {
+  .tableHeader:nth-child(5) {
     width: 136px;
   }
   .tableHeader {

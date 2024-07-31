@@ -26,7 +26,6 @@ const WordsTable = ({ words, handleActions, actionType }) => {
           </span>
         ),
         accessor: "en",
-        className: "columnWord",
       },
       {
         Header: () => (
@@ -45,7 +44,6 @@ const WordsTable = ({ words, handleActions, actionType }) => {
       baseColumns.push({
         Header: "Category",
         accessor: "category",
-        className: "columnCategory",
       });
     }
 
@@ -53,13 +51,12 @@ const WordsTable = ({ words, handleActions, actionType }) => {
       baseColumns.push({
         Header: "Progress",
         accessor: "progress",
-        className: "columnProgress",
       });
     }
 
     baseColumns.push({
       accessor: "actions",
-      className: "columnActions",
+
       Cell: ({ row }) => {
         if (actionType === "dictionary") {
           return <WordMenu word={row.original} handleActions={handleActions} />;
@@ -94,7 +91,7 @@ const WordsTable = ({ words, handleActions, actionType }) => {
             <tr
               {...headerGroup.getHeaderGroupProps()}
               key={nanoid()}
-              className={css.tableRow}
+              className={css.headerRow}
             >
               {headerGroup.headers.map((column) => (
                 <th

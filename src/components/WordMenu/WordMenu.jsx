@@ -59,7 +59,13 @@ const WordMenu = ({ word, handleActions }) => {
           vertical: "top",
           horizontal: "right",
         }}
-        classes={{ paper: css.customPaper }}
+        sx={{
+          ".MuiPaper-root": {
+            borderRadius: "15px",
+            boxShadow: "0px 4px 47px 0px rgba(18, 20, 23, 0.08)",
+            backgroundColor: "#ffffff",
+          },
+        }}
       >
         <div className={css.btnWrap}>
           <button onClick={handleEdit} className={css.menuBtn}>
