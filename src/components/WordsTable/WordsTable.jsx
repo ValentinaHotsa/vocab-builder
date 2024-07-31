@@ -1,86 +1,133 @@
 import { useTable } from "react-table";
-// import "react-table/react-table.css";
-import css from "./WordsTable.module.css";
+import { useDispatch } from "react-redux";
+import { useMemo } from "react";
+import { nanoid } from "nanoid";
 import { selectWords } from "../../redux/word/selectors";
 import { fetchAllWords } from "../../redux/word/operations";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useMemo } from "react";
 import WordMenu from "../WordMenu/WordMenu";
+import css from "./WordsTable.module.css";
+import svg from "../../assets/icon.svg";
+import { useIsMobile } from "../../hooks/useIsMobile";
 
 const WordsTable = ({ words, handleActions, actionType }) => {
-  const dispatch = useDispatch();
+  const isMobile = useIsMobile();
 
   const data = useMemo(() => words, [words]);
 
   const columns = useMemo(() => {
-    const actionColumn = {
-      Header: "Actions",
+    const baseColumns = [
+      {
+        Header: () => (
+          <span>
+            Word{" "}
+            <svg className={css.iconCountry}>
+              <use href={`${svg}#icon-en`} />
+            </svg>
+          </span>
+        ),
+        accessor: "en",
+        className: "columnWord",
+      },
+      {
+        Header: () => (
+          <span>
+            Translation{" "}
+            <svg className={css.iconCountry}>
+              <use href={`${svg}#icon-ukraine`} />
+            </svg>
+          </span>
+        ),
+        accessor: "ua",
+        className: "columnTranslation",
+      },
+    ];
+    if (!isMobile || actionType === "recommend") {
+      baseColumns.push({
+        Header: "Category",
+        accessor: "category",
+        className: "columnCategory",
+      });
+    }
+
+    if (actionType === "dictionary") {
+      baseColumns.push({
+        Header: "Progress",
+        accessor: "progress",
+        className: "columnProgress",
+      });
+    }
+
+    baseColumns.push({
       accessor: "actions",
+      className: "columnActions",
       Cell: ({ row }) => {
         if (actionType === "dictionary") {
           return <WordMenu word={row.original} handleActions={handleActions} />;
         } else if (actionType === "recommend") {
           return (
-            <button onClick={() => handleActions(row.original, "add")}>
-              Add to dictionary
+            <button
+              onClick={() => handleActions(row.original, "add")}
+              className={css.buttonAdd}
+            >
+              <span>Add to dictionary</span>
+              <svg className={css.iconAdd}>
+                <use href={`${svg}#icon-arrow-right`} />
+              </svg>
             </button>
           );
         }
         return null;
       },
-    };
+    });
 
-    return [
-      {
-        Header: "English",
-        accessor: "en",
-      },
-      {
-        Header: "Ukrainian",
-        accessor: "ua",
-      },
-      {
-        Header: "Category",
-        accessor: "category",
-      },
-      {
-        Header: "Progress",
-        accessor: "progress",
-      },
-      actionColumn,
-    ];
-  }, [handleActions, actionType]);
+    return baseColumns;
+  }, [handleActions, actionType, isMobile]);
+
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data });
 
   return (
-    <table {...getTableProps()}>
-      <thead>
-        {headerGroups.map((headerGroup) => (
-          <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
-            {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps()} key={column.id}>
-                {column.render("Header")}
-              </th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row) => {
-          prepareRow(row);
-          return (
-            <tr {...row.getRowProps()} key={row.id}>
-              {row.cells.map((cell) => (
-                <td {...cell.getCellProps()} key={cell.column.id}>
-                  {cell.render("Cell")}
-                </td>
+    <div className={css.tableContainer}>
+      <table {...getTableProps()} className={css.table}>
+        <thead className={css.thead}>
+          {headerGroups.map((headerGroup) => (
+            <tr
+              {...headerGroup.getHeaderGroupProps()}
+              key={nanoid()}
+              className={css.tableRow}
+            >
+              {headerGroup.headers.map((column) => (
+                <th
+                  {...column.getHeaderProps()}
+                  key={column.id}
+                  className={css.tableHeader}
+                >
+                  {column.render("Header")}
+                </th>
               ))}
             </tr>
-          );
-        })}
-      </tbody>
-    </table>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map((row) => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()} key={row.id} className={css.tableRow}>
+                {row.cells.map((cell) => (
+                  <td
+                    {...cell.getCellProps()}
+                    key={cell.column.id}
+                    className={css.tableItem}
+                  >
+                    {cell.render("Cell")}
+                  </td>
+                ))}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

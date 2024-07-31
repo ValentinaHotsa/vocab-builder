@@ -62,6 +62,7 @@
   --progress-empty: #d4f8d3;
   --form-background: rgba(133, 170, 159, 0.1);
   --border: rgb(219, 219, 219);
+  --pure-white: #ffffff;
 }
 
 body {
