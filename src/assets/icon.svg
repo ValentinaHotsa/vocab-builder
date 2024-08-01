@@ -1,6 +1,6 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
-<symbol id="icon-arrow-pagination" viewBox="0 0 32 32">
+<symbol id="icon-pagination-last" viewBox="0 0 32 32">
 <path d="M8.54 8l-1.88 1.88 6.1 6.12-6.1 6.12 1.88 1.88 8-8-8-8z"></path>
 <path d="M17.32 8l-1.88 1.88 6.12 6.12-6.12 6.12 1.88 1.88 8-8-8-8z"></path>
 </symbol>
@@ -53,6 +53,13 @@
 </symbol>
 <symbol id="icon-user" viewBox="0 0 32 32">
 <path d="M16 0c2.12 0 4.14 0.84 5.64 2.34s2.36 3.52 2.36 5.66c0 2.12-0.86 4.14-2.36 5.64s-3.52 2.36-5.64 2.36c-2.14 0-4.16-0.86-5.66-2.36s-2.34-3.52-2.34-5.64c0-2.14 0.84-4.16 2.34-5.66s3.52-2.34 5.66-2.34zM16 32c0 0 16 0 16-4 0-4.8-7.8-10-16-10s-16 5.2-16 10c0 4 16 4 16 4z"></path>
+</symbol>
+<symbol id="icon-pagination-first" viewBox="0 0 32 32">
+<path d="M23.44 24l1.88-1.88-6.1-6.12 6.1-6.12-1.88-1.88-8 8 8 8z"></path>
+<path d="M14.66 24l1.88-1.88-6.1-6.12 6.1-6.12-1.88-1.88-8 8 8 8z"></path>
+</symbol>
+<symbol id="icon-pagination-back" viewBox="0 0 32 32">
+<path d="M20.12 24l1.88-1.88-6.12-6.12 6.12-6.12-1.88-1.88-8 8 8 8z"></path>
 </symbol>
 <symbol id="icon-error" viewBox="0 0 32 32">
 <path fill="#d80027" style="fill: var(--color1, #d80027)" d="M15.984 31.992c-8.832 0-15.984-7.176-15.984-16.008s7.152-15.984 15.984-15.984c8.832 0 16.008 7.152 16.008 15.984s-7.176 16.008-16.008 16.008zM14.4 20.784v3.216h3.192v-3.216h-3.192zM14.4 7.992v9.6h3.192v-9.6h-3.192z"></path>

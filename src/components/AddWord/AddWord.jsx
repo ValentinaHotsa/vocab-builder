@@ -84,7 +84,7 @@ const AddWord = () => {
         alert(error.message);
       });
   };
-  console.log();
+
   return (
     <>
       <button type="button" onClick={handleClick} className={css.button}>

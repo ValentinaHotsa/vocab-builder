@@ -1,0 +1,54 @@
+.buttonArrow svg {
+  width: 16px;
+  height: 16px;
+}
+.buttonArrow {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+.btnNumber {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  background-color: transparent;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btnNumber.active {
+  background-color: var(--main-green);
+  border: none;
+  color: var(--pure-white);
+}
+
+.btnNumber:hover {
+  background-color: var(--hover-green);
+  border: none;
+  color: var(--pure-white);
+}
+
+.buttonArrow:hover {
+  background-color: var(--hover-green);
+  border: none;
+}
+
+.buttonArrow:hover svg {
+  fill: var(--pure-white);
+}
+
+.buttonArrow:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.paginationContainer {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
