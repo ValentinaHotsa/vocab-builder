@@ -1,7 +1,13 @@
-import React from "react";
+import TrainingRoom from "../../components/TrainingRoom/TrainingRoom";
+import ProgressBar from "../../components/ProgressBar/ProgressBar";
 
 const TrainingPage = () => {
-  return <div>TrainingPage</div>;
+  return (
+    <>
+      <TrainingRoom />
+      <ProgressBar />
+    </>
+  );
 };
 
 export default TrainingPage;

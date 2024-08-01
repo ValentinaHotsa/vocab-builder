@@ -141,3 +141,45 @@ export const addWord = createAsyncThunk(
     }
   }
 );
+
+export const getStatistics = createAsyncThunk(
+  "words/statistics",
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await axios.get("words/statistics");
+
+      return response.data;
+    } catch (error) {
+      toast.error("Something went wrong, please try again!");
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getTasks = createAsyncThunk(
+  "words/tasks",
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await axios.get("words/tasks");
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      toast.error("Something went wrong, please try again!");
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const addAnswers = createAsyncThunk(
+  "words/answers",
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await axios.post("words/answers", data);
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      toast.error("Something went wrong, please try again!");
+      return rejectWithValue(error.message);
+    }
+  }
+);

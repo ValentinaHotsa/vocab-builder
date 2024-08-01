@@ -9,6 +9,9 @@ import {
   addWord,
   createWord,
   editWord,
+  getStatistics,
+  getTasks,
+  addAnswers,
 } from "./operations";
 
 const handlePending = (state) => {
@@ -24,9 +27,9 @@ const initialState = {
   words: [],
   ownWords: [],
   categories: [],
-  //   result: [],
-  //   statistics: null,
-  //   tacks: [],
+  result: [],
+  statistics: null,
+  tasks: [],
   page: null,
   totalPages: null,
   // totalPage2: null,
@@ -101,7 +104,24 @@ const wordSlice = createSlice({
           state.ownWords[index] = action.payload;
         }
       })
-      .addCase(editWord.rejected, handleRejected);
+      .addCase(editWord.rejected, handleRejected)
+      .addCase(getStatistics.pending, handlePending)
+      .addCase(getStatistics.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.statistics = action.payload.totalCount;
+      })
+      .addCase(getStatistics.rejected, handleRejected)
+      .addCase(getTasks.pending, handlePending)
+      .addCase(getTasks.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.tasks = [...action.payload.tasks];
+      })
+      .addCase(getTasks.rejected, handleRejected)
+      .addCase(addAnswers.pending, handlePending)
+      .addCase(addAnswers.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.result = action.payload;
+      });
   },
 });
 

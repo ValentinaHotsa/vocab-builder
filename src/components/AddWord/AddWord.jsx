@@ -146,7 +146,7 @@ const AddWord = () => {
                   <span className={css.checkmark}></span>
                 </label>
                 {errors.isIrregular && (
-                  <p className={css.error}>{errors.isIrregular.message}</p>
+                  <p className={css}>{errors.isIrregular.message}</p>
                 )}
               </div>
 
