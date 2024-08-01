@@ -1,4 +1,50 @@
 .dashboarContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  margin-bottom: 31px;
+  margin-top: 32px;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 10px;
+}
+
+.btnWrap {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+@media screen and (min-width: 375px) {
+  .infoContainer {
+    padding-left: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dashboarContainer {
+    margin-top: 80px;
+    gap: 31px;
+  }
+  .infoContainer {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .dashboarContainer {
+    gap: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .infoContainer {
+    flex-direction: row;
+  }
 }
 
 .link {

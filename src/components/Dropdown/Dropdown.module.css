@@ -1,6 +1,7 @@
 .dropdownFilter {
   position: relative;
-  width: 343px;
+  /* width: 343px; */
+  width: 100%;
 }
 
 .headerFilter {
@@ -111,4 +112,19 @@
 .listAddWord li:active,
 .listAddWord li:focus {
   color: var(--main-green);
+}
+
+@media screen and (min-width: 375px) {
+  .dropdownFilter {
+    width: 343px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dropdownFilter {
+    width: 164px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
 }

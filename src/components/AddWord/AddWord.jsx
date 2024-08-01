@@ -84,7 +84,7 @@ const AddWord = () => {
         alert(error.message);
       });
   };
-
+  console.log();
   return (
     <>
       <button type="button" onClick={handleClick} className={css.button}>
@@ -103,44 +103,52 @@ const AddWord = () => {
               enriching the language base and expanding the vocabulary.
             </p>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <Dropdown
-                defaultOption={defaultOption}
-                onSelect={(option) => {
-                  setSelectedCategory(option);
-                  setValue("category", option);
-                }}
-                options={categories}
-                className={style.dropdownAddWord}
-                dropHeader={style.headerAddWord}
-                dropList={style.listAddWord}
-              />
+              <div>
+                <Dropdown
+                  defaultOption={defaultOption}
+                  onSelect={(option) => {
+                    setSelectedCategory(option);
+                    setValue("category", option);
+                  }}
+                  options={categories}
+                  className={style.dropdownAddWord}
+                  dropHeader={style.headerAddWord}
+                  dropList={style.listAddWord}
+                />
+                {errors.category && (
+                  <p className={css.error}>{errors.category.message}</p>
+                )}
+              </div>
 
-              {selectedCategory === "verb" && (
-                <div className={css.btnWrap}>
-                  <label className={css.radioContainer}>
-                    Regular
-                    <input
-                      type="radio"
-                      value="true"
-                      {...register("isIrregular")}
-                    />
-                    <span className={css.checkmark}></span>
-                  </label>
+              <div
+                className={
+                  css.btnWrap +
+                  (selectedCategory === "verb" ? " " + css.visible : "")
+                }
+              >
+                <label className={css.radioContainer}>
+                  Regular
+                  <input
+                    type="radio"
+                    value="false"
+                    {...register("isIrregular")}
+                  />
+                  <span className={css.checkmark}></span>
+                </label>
 
-                  <label className={css.radioContainer}>
-                    Irregular
-                    <input
-                      type="radio"
-                      value="false"
-                      {...register("isIrregular")}
-                    />
-                    <span className={css.checkmark}></span>
-                  </label>
-                </div>
-              )}
-              {errors.verbType && (
-                <p className={css.error}>{errors.isIrregular.message}</p>
-              )}
+                <label className={css.radioContainer}>
+                  Irregular
+                  <input
+                    type="radio"
+                    value="true"
+                    {...register("isIrregular")}
+                  />
+                  <span className={css.checkmark}></span>
+                </label>
+                {errors.isIrregular && (
+                  <p className={css.error}>{errors.isIrregular.message}</p>
+                )}
+              </div>
 
               <div className={css.inputContainer}>
                 <label htmlFor="ua" className={css.label}>

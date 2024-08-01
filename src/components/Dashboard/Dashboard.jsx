@@ -6,20 +6,22 @@ import WordsTable from "../WordsTable/WordsTable";
 import css from "./Dashboard.module.css";
 import svg from "../..//assets/icon.svg";
 
-const Dashboard = ({ onFilterChange }) => {
+const Dashboard = ({ onFilterChange, pageType }) => {
   return (
     <div className={css.dashboarContainer}>
       <Filters onFilterChange={onFilterChange} />
 
       <div className={css.infoContainer}>
         <Statistics />
-        <AddWord />
-        <Link to="/training" className={css.link}>
-          Train oneself
-          <svg className={css.icon}>
-            <use href={`${svg}#icon-arrow-right`} />
-          </svg>
-        </Link>
+        <div className={css.btnWrap}>
+          {pageType === "dictionary" && <AddWord />}
+          <Link to="/training" className={css.link}>
+            Train oneself
+            <svg className={css.icon}>
+              <use href={`${svg}#icon-arrow-right`} />
+            </svg>
+          </Link>
+        </div>
       </div>
     </div>
   );

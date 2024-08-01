@@ -42,11 +42,11 @@ const Filters = ({ onFilterChange }) => {
   const handleCategoryChange = (option) => {
     setCategory(option);
     if (option === "verb") {
-      const defaultVerbType = "false"; // Встановити дефолтне значення для verbType
+      const defaultVerbType = "false";
       setVerbType(defaultVerbType);
       onFilterChange({ search, category: option, verbType: defaultVerbType });
     } else {
-      setVerbType(""); // Очистити verbType, якщо ми не в категорії verb
+      setVerbType("");
       onFilterChange({ search, category: option, verbType: "" });
     }
   };
@@ -83,8 +83,9 @@ const Filters = ({ onFilterChange }) => {
         dropList={style.listFilter}
       />
 
-      {/* {category === "verb" && ( */}
-      <div className={css.btnWrap}>
+      <div
+        className={css.btnWrap + (category === "verb" ? " " + css.visible : "")}
+      >
         <label className={css.radioContainer}>
           Regular
           <input
@@ -109,7 +110,6 @@ const Filters = ({ onFilterChange }) => {
           <span className={css.checkmark}></span>
         </label>
       </div>
-      {/* )} */}
     </div>
   );
 };

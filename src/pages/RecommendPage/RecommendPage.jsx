@@ -44,7 +44,7 @@ const RecommendPage = () => {
 
   return (
     <>
-      <Dashboard onFilterChange={handleFilterChange} />
+      <Dashboard onFilterChange={handleFilterChange} pageType="recommend" />
       <WordsTable
         words={words}
         handleActions={handleActions}

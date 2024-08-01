@@ -69,7 +69,7 @@ const DictionaryPage = () => {
 
   return (
     <div>
-      <Dashboard onFilterChange={handleFilterChange} />
+      <Dashboard onFilterChange={handleFilterChange} pageType="dictionary" />
       <WordsTable
         words={words}
         handleActions={handleActions}

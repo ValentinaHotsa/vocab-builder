@@ -1,5 +1,4 @@
 .mainContainer {
-  margin: 0 auto;
   flex-grow: 1;
   /* padding: 0 10px; */
   /* height: 100vh; */
@@ -15,6 +14,7 @@
 @media screen and (min-width: 375px) {
   .mainContainer {
     max-width: 375px;
+    margin: 0 auto;
   }
 }
 

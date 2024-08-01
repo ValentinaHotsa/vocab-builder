@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 18px;
-  margin-top: 32px;
+  /* margin-bottom: 18px; */
+  /* align-items: center; */
 }
 
 .inputContainer {
+  width: 100%;
   position: relative;
 }
 
@@ -18,9 +19,9 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
-  width: 343px;
   height: 48px;
   font-family: "FixelDisplay";
+  width: 100%;
 }
 .input::placeholder {
   color: var(--black);
@@ -41,8 +42,15 @@
   display: flex;
   flex-direction: row;
   gap: 16px;
-  margin-top: 8px;
+  overflow: hidden;
+  visibility: hidden;
+  transition: all 0.3s;
 }
+
+.btnWrap.visible {
+  visibility: visible;
+}
+
 .radioContainer {
   position: relative;
   padding-left: 26px;
@@ -101,6 +109,11 @@
   display: block;
 }
 
+@media screen and (min-width: 375px) {
+  .inputContainer {
+    width: 343px;
+  }
+}
 @media screen and (min-width: 768px) {
   .radioContainer {
     font-size: 14px;
@@ -108,10 +121,9 @@
   .filterContainer {
     flex-direction: row;
     align-items: center;
-    margin-top: 80px;
-    margin-bottom: 28px;
+    /* margin-bottom: 28px; */
   }
-  .input {
+  .inputContainer {
     width: 274px;
   }
   .btnWrap {
