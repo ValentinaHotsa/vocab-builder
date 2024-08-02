@@ -3,9 +3,12 @@ import { selectTasks } from "../../redux/word/selectors";
 import { useEffect, useState } from "react";
 import { addAnswers, getTasks } from "../../redux/word/operations";
 import css from "./TrainingRoom.module.css";
-
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import svg from "../../assets/icon.svg";
 const TrainingRoom = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const tasks = useSelector(selectTasks);
 
   const [currentTaskIndex, setCurrentTaskIndex] = useState(0);
@@ -14,49 +17,63 @@ const TrainingRoom = () => {
   const currentTask = tasks[currentTaskIndex];
   const isLastTask = currentTaskIndex === tasks.length - 1;
 
-  useEffect(() => {
-    dispatch(getTasks());
-  }, [dispatch]);
-  console.log(currentTask);
-
   const handleNext = () => {
     if (currentAnswer.trim()) {
-      handleSave(currentTask, currentAnswer);
+      const newAnswer = {
+        _id: currentTask._id,
+        en: currentTask.en,
+        ua: currentTask.ua,
+        task: currentTask.task,
+        [currentTask.task]: currentAnswer,
+      };
+      setAnswers([...answers, newAnswer]);
     }
     setCurrentAnswer("");
-    if (currentTaskIndex < tasks.length - 1) {
+    if (!isLastTask) {
       setCurrentTaskIndex(currentTaskIndex + 1);
     }
   };
 
-  const handleSave = (currentTask, value) => {
-    const key = currentTask.task;
-    const newValue = {
-      ...currentTask,
-      [key]: value,
-    };
-    const newResults = [...answers, newValue];
-    setAnswers(newResults);
+  const handleSave = () => {
+    let newAnswers = [...answers];
+
+    if (currentAnswer.trim()) {
+      newAnswers.push({
+        _id: currentTask._id,
+        en: currentTask.en,
+        ua: currentTask.ua,
+        task: currentTask.task,
+        [currentTask.task]: currentAnswer,
+      });
+    }
+    dispatch(addAnswers(newAnswers))
+      .unwrap()
+      .then(() => {
+        toast.success("Your answers have been saved!");
+        setCurrentTaskIndex(0);
+        setCurrentAnswer("");
+        setAnswers([]);
+      })
+      .catch((error) => {
+        toast.error("Failed to save your answers. Please try again!");
+      });
   };
 
-  const fetchAnswers = () => {
-    const newResults = handleSave(currentTask, currentAnswer);
-
-    dispatch(addAnswers(newResults));
+  const handleCancel = () => {
+    setAnswers([]);
+    setCurrentAnswer("");
+    navigate("/dictionary");
   };
 
   return (
-    <>
+    <div>
       {currentTask && (
-        <>
-          <div>
-            <h3>Translate the word:</h3>
-            <p>{currentTask.task === "en" ? currentTask.ua : currentTask.en}</p>
-          </div>
-
-          <div>
+        <div className={css.inputContainer}>
+          <div className={css.answerContainer}>
             <input
+              className={css.inputAnswer}
               type="text"
+              id="answer"
               value={currentAnswer}
               onChange={(e) => setCurrentAnswer(e.target.value)}
               placeholder={
@@ -65,22 +82,70 @@ const TrainingRoom = () => {
                   : "Введіть переклад"
               }
             />
-          </div>
-          <div>
             {!isLastTask && (
-              <button type="button" onClick={handleNext}>
+              <button
+                className={css.btnNext}
+                type="button"
+                onClick={handleNext}
+              >
                 Next
+                <svg className={css.iconArrow}>
+                  <use href={`${svg}#icon-arrow-right`} />
+                </svg>
               </button>
             )}
-            <button type="submit" onClick={fetchAnswers}>
-              Save
-            </button>
+            {currentTask.task === "en" ? (
+              <div className={css.labelWrap}>
+                <svg className={css.iconCountry}>
+                  <use href={`${svg}#icon-en`} />
+                </svg>
+                <label className={css.label} htmlFor="answer">
+                  English
+                </label>
+              </div>
+            ) : (
+              <div className={css.labelWrap}>
+                <svg className={css.iconCountry}>
+                  <use href={`${svg}#icon-ukraine`} />
+                </svg>
+                <label className={css.label} htmlFor="answer">
+                  Ukrainian
+                </label>
+              </div>
+            )}
           </div>
-        </>
+          <div className={css.taskContainer}>
+            <p className={css.task}>
+              {currentTask.task === "en" ? currentTask.ua : currentTask.en}
+            </p>
+            {currentTask.task === "ua" ? (
+              <div className={css.labelWrap}>
+                <svg className={css.iconCountry}>
+                  <use href={`${svg}#icon-en`} />
+                </svg>
+                <span className={css.span}>English</span>
+              </div>
+            ) : (
+              <div className={css.labelWrap}>
+                <svg className={css.iconCountry}>
+                  <use href={`${svg}#icon-ukraine`} />
+                </svg>
+                <span className={css.span}>Ukrainian</span>
+              </div>
+            )}
+          </div>
+        </div>
       )}
 
-      <div>{tasks.length}</div>
-    </>
+      <div className={css.btnsWrap}>
+        <button className={css.btnSave} type="submit" onClick={handleSave}>
+          Save
+        </button>
+        <button className={css.btnCancel} type="button" onClick={handleCancel}>
+          Cancel
+        </button>
+      </div>
+    </div>
   );
 };
 
