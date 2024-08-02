@@ -8,6 +8,7 @@ import WordMenu from "../WordMenu/WordMenu";
 import css from "./WordsTable.module.css";
 import svg from "../../assets/icon.svg";
 import { useIsMobile } from "../../hooks/useIsMobile";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 const WordsTable = ({ words, handleActions, actionType }) => {
   const isMobile = useIsMobile();
@@ -51,6 +52,10 @@ const WordsTable = ({ words, handleActions, actionType }) => {
       baseColumns.push({
         Header: "Progress",
         accessor: "progress",
+
+        Cell: ({ row }) => {
+          return <ProgressBar word={row.original} />;
+        },
       });
     }
 

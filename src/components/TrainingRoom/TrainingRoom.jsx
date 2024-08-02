@@ -6,16 +6,22 @@ import css from "./TrainingRoom.module.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import svg from "../../assets/icon.svg";
+import Modal from "../Modal/Modal";
+import DoneModal from "../DoneModal/DoneModal";
 const TrainingRoom = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const tasks = useSelector(selectTasks);
-
+  const [modalOpen, setModalOpen] = useState(false);
   const [currentTaskIndex, setCurrentTaskIndex] = useState(0);
   const [currentAnswer, setCurrentAnswer] = useState("");
   const [answers, setAnswers] = useState([]);
   const currentTask = tasks[currentTaskIndex];
   const isLastTask = currentTaskIndex === tasks.length - 1;
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   const handleNext = () => {
     if (currentAnswer.trim()) {
@@ -46,17 +52,25 @@ const TrainingRoom = () => {
         [currentTask.task]: currentAnswer,
       });
     }
-    dispatch(addAnswers(newAnswers))
-      .unwrap()
-      .then(() => {
-        toast.success("Your answers have been saved!");
-        setCurrentTaskIndex(0);
-        setCurrentAnswer("");
-        setAnswers([]);
-      })
-      .catch((error) => {
-        toast.error("Failed to save your answers. Please try again!");
-      });
+    if (newAnswers.length > 0) {
+      dispatch(addAnswers(newAnswers))
+        .unwrap()
+        .then(() => {
+          toast.success("Your answers have been saved!");
+          setCurrentTaskIndex(0);
+          setCurrentAnswer("");
+          setAnswers([]);
+
+          setModalOpen(true);
+        })
+        .catch((error) => {
+          toast.error(
+            error.message || "An error occurred while saving your answers."
+          );
+        });
+    } else {
+      toast.info("No answers to save.");
+    }
   };
 
   const handleCancel = () => {
@@ -145,6 +159,11 @@ const TrainingRoom = () => {
           Cancel
         </button>
       </div>
+      {modalOpen && (
+        <Modal onClose={closeModal}>
+          <DoneModal />
+        </Modal>
+      )}
     </div>
   );
 };

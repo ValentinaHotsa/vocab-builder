@@ -48,6 +48,8 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: normal;
+  hyphens: auto;
+  max-width: 90px;
 }
 .tableItem:not(:last-child) {
   border-right: 1px solid rgb(219, 219, 219);
@@ -88,40 +90,25 @@
 }
 
 .tableHeader:nth-child(1) {
-  max-width: 90px;
+  width: 90px;
 }
 .tableHeader:nth-child(2) {
-  max-width: 116px;
+  width: 116px;
 }
 .tableHeader:nth-child(3) {
-  max-width: 99px;
+  width: 99px;
 }
 .tableHeader:nth-child(4) {
-  max-width: 99px;
+  width: 99px;
 }
 .tableHeader:nth-child(5) {
-  max-width: 38px;
+  width: 38px;
 }
-
 @media screen and (min-width: 375px) {
   .table {
     width: 343px;
   }
-  .tableHeader:nth-child(1) {
-    width: 90px;
-  }
-  .tableHeader:nth-child(2) {
-    width: 116px;
-  }
-  .tableHeader:nth-child(3) {
-    width: 99px;
-  }
-  .tableHeader:nth-child(4) {
-    width: 99px;
-  }
-  .tableHeader:nth-child(5) {
-    width: 38px;
-  }
+
   .tableHeader {
     padding: 16px 14px;
     font-size: 16px;
