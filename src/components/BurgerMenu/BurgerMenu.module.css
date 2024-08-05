@@ -8,20 +8,50 @@
   stroke: var(--black);
 }
 
-.modalContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.imgThumb {
+  width: 363px;
+  height: 318px;
+  position: absolute;
+  bottom: 0;
+  left: -73px;
 }
 
-.navWrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px; /* регулируйте по вашему усмотрению */
+.imgThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.navLink {
-  font-size: 20px; /* регулируйте по вашему усмотрению */
-  padding: 10px 15px;
+.menuModal {
+  position: fixed;
+  right: 0px;
+  width: 185px;
+  top: 0px;
+  z-index: 1;
+  height: 100%;
+  padding: 16px;
+  background-color: var(--main-green);
+  overflow: hidden;
+  transition: all 0.5s ease;
+  transform: translateX(100%);
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+.menuModal.open {
+  transition: all 0.5s ease;
+
+  transform: translateX(0);
+}
+.btnClose {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+.iconClose {
+  stroke: var(--white);
+  width: 32px;
+  height: 32px;
 }

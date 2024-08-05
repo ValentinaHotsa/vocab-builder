@@ -1,4 +1,5 @@
 import css from "./Header.module.css";
+import style from "../UserBar/UserBar.module.css";
 import svg from "../../assets/icon.svg";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
@@ -48,7 +49,10 @@ const Header = () => {
                 isMinimumMobile ? css.hidden : ""
               }`}
             >
-              <UserBar />
+              <UserBar
+                styleIcon={style.iconHeader}
+                styleName={style.nameHeader}
+              />
             </div>
             <div
               className={`${css.navUserContainer} ${

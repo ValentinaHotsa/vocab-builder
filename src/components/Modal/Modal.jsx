@@ -2,8 +2,8 @@ import { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import css from "./Modal.module.css";
 import svg from "../../assets/icon.svg";
-// ========== перевірити роботу, обновити стилі=============================
-const Modal = ({ onClose, children }) => {
+
+const Modal = ({ onClose, children, className }) => {
   const targetElement = document.getElementById("modal-root");
   const backdrop = useRef();
 
@@ -35,7 +35,7 @@ const Modal = ({ onClose, children }) => {
 
   return ReactDOM.createPortal(
     <div className={css.modalDrop} onClick={handleClickOutside} ref={backdrop}>
-      <div className={css.modalWrap}>
+      <div className={`${css.modalWrap} ${className}`}>
         <button className={css.btnClose} onClick={onClose}>
           <svg className={css.iconClose}>
             <use href={`${svg}#icon-close`} />

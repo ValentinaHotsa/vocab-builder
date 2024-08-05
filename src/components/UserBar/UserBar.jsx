@@ -5,19 +5,17 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/auth/selectors";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
-const UserBar = () => {
+const UserBar = ({ styleName, styleIcon }) => {
   const userName = useSelector(selectUser);
 
   return (
     <div className={css.userContainer}>
-      <span className={css.userName}>{userName}</span>
+      <span className={styleName}>{userName}</span>
       <div className={css.iconWrap}>
-        <svg className={css.iconUser}>
+        <svg className={styleIcon}>
           <use href={`${svg}#icon-user`} />
         </svg>
       </div>
-      {/* <LogOut /> */}
-      {/* <BurgerMenu /> */}
     </div>
   );
 };

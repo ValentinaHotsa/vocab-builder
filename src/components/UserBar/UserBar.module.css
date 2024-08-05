@@ -5,11 +5,10 @@
   gap: 10px;
 }
 
-.userName {
+.nameHeader {
   font-size: 16px;
   font-weight: 500;
   line-height: 28px;
-  /* margin-top: 4px; */
 }
 
 .iconWrap {
@@ -22,7 +21,7 @@
   align-items: center;
 }
 
-.iconUser {
+.iconHeader {
   width: 15px;
   height: 15px;
   fill: rgba(252, 252, 252, 0.7);
@@ -36,11 +35,16 @@
     width: 48px;
     height: 48px;
   }
-  .iconUser {
+  .iconHeader {
     width: 18px;
     height: 18px;
   }
-  .userName {
+  .nameHeader {
     font-size: 20px;
   }
+}
+
+.iconMenu {
+}
+.nameMenu {
 }
