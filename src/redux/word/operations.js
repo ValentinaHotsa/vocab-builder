@@ -4,6 +4,36 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const notification = (error, rejectWithValue) => {
+  let message = "An unexpected error occurred. Please try again.";
+
+  if (error.response) {
+    switch (error.response.status) {
+      case 400:
+        message = "Bad request. Please check your input.";
+        break;
+      case 404:
+        message = "Service not found.";
+        break;
+      case 401:
+        message = "Data not found.";
+        break;
+      case 409:
+        message = "Such a word exists";
+        break;
+
+      case 500:
+        message =
+          "Server error. Something went wrong on our end. Please try again later.";
+        break;
+      default:
+        message = error.response.data?.message || message;
+    }
+  }
+  toast.error(message);
+  return rejectWithValue(message);
+};
+
 axios.defaults.baseURL = "https://vocab-builder-backend.p.goit.global/api/";
 
 export const fetchCategories = createAsyncThunk(
@@ -13,24 +43,10 @@ export const fetchCategories = createAsyncThunk(
       const response = await axios.get("words/categories");
       return response.data;
     } catch (error) {
-      toast.error("Something went wrong, please try again!");
-      return rejectWithValue(error.meddage);
+      return notification(error, rejectWithValue);
     }
   }
 );
-
-// export const wordsAll = createAsyncThunk(
-//   "words/all",
-//   async (_, { rejectWithValue }) => {
-//     try {
-//       const { data } = await axios.get(`words/all`);
-
-//       return data;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
 
 export const fetchAllWords = createAsyncThunk(
   "words/all",
@@ -41,21 +57,16 @@ export const fetchAllWords = createAsyncThunk(
       if (category !== "all") {
         url += `&category=${category}`;
         if (category === "verb") {
-          // console.log("Checking verbType inside fetchAllWords:", verbType); // Перевірте це
           if (verbType !== undefined) {
-            // console.log("Appending isIrregular to URL:", verbType);
             url += `&isIrregular=${verbType}`;
-          } else {
-            // console.log("verbType is undefined");
           }
         }
       }
-      // console.log("URL being requested:", url);
+
       const response = await axios.get(url);
       return response.data;
     } catch (error) {
-      toast.error("Something went wrong, please try again!");
-      return rejectWithValue(error.message);
+      return notification(error, rejectWithValue);
     }
   }
 );
@@ -69,21 +80,16 @@ export const ownWords = createAsyncThunk(
       if (category !== "all") {
         url += `&category=${category}`;
         if (category === "verb") {
-          // console.log("Checking verbType inside fetchAllWords:", verbType); // Перевірте це
           if (verbType !== undefined) {
-            // console.log("Appending isIrregular to URL:", verbType);
             url += `&isIrregular=${verbType}`;
-          } else {
-            // console.log("verbType is undefined");
           }
         }
       }
-      // console.log("URL being requested:", url);
+
       const response = await axios.get(url);
       return response.data;
     } catch (error) {
-      toast.error("Something went wrong, please try again!");
-      return rejectWithValue(error.message);
+      return notification(error, rejectWithValue);
     }
   }
 );
@@ -97,8 +103,7 @@ export const createWord = createAsyncThunk(
       toast.success("A new word has been successfully created.");
       return response.data;
     } catch (error) {
-      toast.error("Something went wrong, please try again!");
-      return rejectWithValue(error.message);
+      return notification(error, rejectWithValue);
     }
   }
 );
@@ -110,8 +115,7 @@ export const deleteWord = createAsyncThunk(
       await axios.delete(`words/delete/${wordsId}`);
       return wordsId;
     } catch (error) {
-      toast.error("Something went wrong, please try again!");
-      return rejectWithValue(error.message);
+      return notification(error, rejectWithValue);
     }
   }
 );
@@ -123,8 +127,7 @@ export const editWord = createAsyncThunk(
       const response = await axios.patch(`words/edit/${wordsId}`, data);
       return response.data;
     } catch (error) {
-      toast.error("Something went wrong, please try again!");
-      return rejectWithValue(error.message);
+      return notification(error, rejectWithValue);
     }
   }
 );
@@ -136,8 +139,7 @@ export const addWord = createAsyncThunk(
       const response = await axios.post(`words/add/${wordsId}`);
       return response.data;
     } catch (error) {
-      toast.error("Something went wrong, please try again!");
-      return rejectWithValue(error.message);
+      return notification(error, rejectWithValue);
     }
   }
 );
@@ -150,8 +152,7 @@ export const getStatistics = createAsyncThunk(
 
       return response.data;
     } catch (error) {
-      toast.error("Something went wrong, please try again!");
-      return rejectWithValue(error.message);
+      return notification(error, rejectWithValue);
     }
   }
 );
@@ -164,8 +165,7 @@ export const getTasks = createAsyncThunk(
       console.log(response.data);
       return response.data;
     } catch (error) {
-      toast.error("Something went wrong, please try again!");
-      return rejectWithValue(error.message);
+      return notification(error, rejectWithValue);
     }
   }
 );
@@ -178,8 +178,7 @@ export const addAnswers = createAsyncThunk(
       console.log(response.data);
       return response.data;
     } catch (error) {
-      toast.error("Something went wrong, please try again!");
-      return rejectWithValue(error.message);
+      return notification(error, rejectWithValue);
     }
   }
 );

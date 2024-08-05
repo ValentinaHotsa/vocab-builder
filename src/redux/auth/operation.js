@@ -3,6 +3,36 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const notification = (error, rejectWithValue) => {
+  let message = "An unexpected error occurred. Please try again.";
+
+  if (error.response) {
+    switch (error.response.status) {
+      case 400:
+        message = "Bad request. Please check your input.";
+        break;
+      case 404:
+        message = "Service not found.";
+        break;
+      case 401:
+        message = "Email or password invalid";
+        break;
+      case 409:
+        message = "Such email already exists";
+        break;
+
+      case 500:
+        message =
+          "Server error. Something went wrong on our end. Please try again later.";
+        break;
+      default:
+        message = error.response.data?.message || message;
+    }
+  }
+  toast.error(message);
+  return rejectWithValue(message);
+};
+
 axios.defaults.baseURL = "https://vocab-builder-backend.p.goit.global/api/";
 
 const setAuthHeader = (token) => {
@@ -22,8 +52,7 @@ export const signupThunk = createAsyncThunk(
 
       return response.data;
     } catch (error) {
-      toast.error(error.response.data.message);
-      return rejectWithValue(error.message);
+      return notification(error, rejectWithValue);
     }
   }
 );
@@ -37,8 +66,7 @@ export const signinThunk = createAsyncThunk(
       toast.success("Log in is successful");
       return response.data;
     } catch (error) {
-      toast.error("Something went wrong, please try again!");
-      return rejectWithValue(error.message);
+      return notification(error, rejectWithValue);
     }
   }
 );
@@ -51,8 +79,7 @@ export const signoutThunk = createAsyncThunk(
       clearAuthHeader();
       toast.success("Log out successful");
     } catch (error) {
-      toast.error("Something went wrong, please try again!");
-      return rejectWithValue(error.message);
+      return notification(error, rejectWithValue);
     }
   }
 );

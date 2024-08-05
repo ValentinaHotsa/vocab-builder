@@ -19,11 +19,36 @@ const TrainingRoom = () => {
   const [currentTaskIndex, setCurrentTaskIndex] = useState(0);
   const [currentAnswer, setCurrentAnswer] = useState("");
   const [answers, setAnswers] = useState([]);
+  const [error, setError] = useState("");
   const currentTask = tasks[currentTaskIndex];
   const isLastTask = currentTaskIndex === tasks.length - 1;
 
   const closeModal = () => {
     setModalOpen(false);
+  };
+
+  const validateInput = (input) => {
+    const enPattern = /^[A-Za-z]+$/;
+    const uaPattern = /^[А-ЯІЄЇҐа-яієїґ]+$/;
+
+    if (currentTask.task === "en" && !enPattern.test(input)) {
+      return "Please enter valid English words.";
+    }
+    if (currentTask.task === "ua" && !uaPattern.test(input)) {
+      return "Будь ласка, введіть слово українською.";
+    }
+    return "";
+  };
+
+  const handleChange = (e) => {
+    const input = e.target.value;
+    setCurrentAnswer(input);
+    const validationError = validateInput(input);
+    if (input.trim() !== "") {
+      setError(validationError);
+    } else {
+      setError("");
+    }
   };
 
   const handleNext = () => {
@@ -38,6 +63,7 @@ const TrainingRoom = () => {
       setAnswers([...answers, newAnswer]);
     }
     setCurrentAnswer("");
+    setError("");
     if (!isLastTask) {
       setCurrentTaskIndex(currentTaskIndex + 1);
     }
@@ -55,7 +81,7 @@ const TrainingRoom = () => {
         [currentTask.task]: currentAnswer,
       });
     }
-    if (newAnswers.length > 0) {
+    if (newAnswers.length > 0 && !error) {
       dispatch(addAnswers(newAnswers))
         .unwrap()
         .then(() => {
@@ -63,7 +89,6 @@ const TrainingRoom = () => {
           setCurrentTaskIndex(0);
           setCurrentAnswer("");
           setAnswers([]);
-
           setModalOpen(true);
         })
         .catch((error) => {
@@ -72,7 +97,7 @@ const TrainingRoom = () => {
           );
         });
     } else {
-      toast.info("No answers to save.");
+      toast.info("No answers to save or there is an error.");
     }
   };
 
@@ -103,15 +128,17 @@ const TrainingRoom = () => {
               type="text"
               id="answer"
               value={currentAnswer}
-              onChange={(e) => setCurrentAnswer(e.target.value)}
+              onChange={handleChange}
               placeholder={
                 currentTask.task === "en"
                   ? "Enter translate"
                   : "Введіть переклад"
               }
             />
+            {error && <p className={css.error}>{error}</p>}
             {!isLastTask && (
               <button
+                disabled={!!error}
                 className={css.btnNext}
                 type="button"
                 onClick={handleNext}

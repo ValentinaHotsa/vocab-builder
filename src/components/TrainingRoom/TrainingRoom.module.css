@@ -145,6 +145,11 @@
   margin-top: 24px;
   padding-right: 22px;
 }
+
+.error {
+  color: var(--form-error);
+  font-size: 12px;
+}
 @media screen and (min-width: 375px) {
   .answerContainer {
     width: 343px;
