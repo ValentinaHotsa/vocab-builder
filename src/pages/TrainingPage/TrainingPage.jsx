@@ -14,13 +14,7 @@ const TrainingPage = () => {
     dispatch(getTasks());
   }, [dispatch]);
 
-  return (
-    <>
-      {tasks.length === 0 ? <NoTasks /> : <TrainingRoom />}
-
-      {/* <ProgressBar /> */}
-    </>
-  );
+  return <>{tasks.length === 0 ? <NoTasks /> : <TrainingRoom />}</>;
 };
 
 export default TrainingPage;

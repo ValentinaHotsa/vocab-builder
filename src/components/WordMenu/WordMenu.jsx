@@ -36,7 +36,7 @@ const WordMenu = ({ word, handleActions }) => {
   const id = open ? "word-menu-popover" : undefined;
 
   return (
-    <>
+    <div className={css.wrap}>
       <button
         aria-describedby={id}
         onClick={handleClick}
@@ -83,7 +83,7 @@ const WordMenu = ({ word, handleActions }) => {
         </div>
       </Popover>
       {openEditModal && <EditWord word={word} onClose={closeEditModal} />}
-    </>
+    </div>
   );
 };
 

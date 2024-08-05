@@ -8,6 +8,9 @@ import { useNavigate } from "react-router-dom";
 import svg from "../../assets/icon.svg";
 import Modal from "../Modal/Modal";
 import DoneModal from "../DoneModal/DoneModal";
+import ProgressBar from "../ProgressBar/ProgressBar";
+import style from "../ProgressBar/ProgressBar.module.css";
+
 const TrainingRoom = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -79,8 +82,19 @@ const TrainingRoom = () => {
     navigate("/dictionary");
   };
 
+  const progress = Math.round((answers.length / tasks.length) * 100);
+
   return (
     <div>
+      <div className={css.wrapProgress}>
+        <ProgressBar
+          progress={progress}
+          pageType="training"
+          classWrap={style.progressWrapTrain}
+          classBox={style.boxTrain}
+          count={answers.length}
+        />
+      </div>
       {currentTask && (
         <div className={css.inputContainer}>
           <div className={css.answerContainer}>

@@ -1,5 +1,5 @@
 .inputContainer {
-  margin-top: 92px;
+  /* margin-top: 92px; */
 }
 .answerContainer {
   width: 100%;
@@ -138,10 +138,19 @@
 .btnCancel:active {
   color: var(--black);
 }
-
+.wrapProgress {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 8px;
+  margin-top: 24px;
+  padding-right: 22px;
+}
 @media screen and (min-width: 375px) {
   .answerContainer {
     width: 343px;
+  }
+  .wrapProgress {
+    padding-right: 0;
   }
 }
 
@@ -150,7 +159,7 @@
     padding: 18px;
     background-color: var(--pure-white);
     border-radius: 15px;
-    margin-top: 136px;
+    /* margin-top: 136px; */
   }
   .answerContainer {
     width: 668px;
@@ -199,6 +208,10 @@
     width: 203px;
     height: 56px;
     border-radius: 30px;
+  }
+  .wrapProgress {
+    margin-top: 62px;
+    margin-bottom: 16px;
   }
 }
 

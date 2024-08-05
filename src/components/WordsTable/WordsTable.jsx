@@ -9,6 +9,7 @@ import css from "./WordsTable.module.css";
 import svg from "../../assets/icon.svg";
 import { useIsMobile } from "../../hooks/useIsMobile";
 import ProgressBar from "../ProgressBar/ProgressBar";
+import style from "../ProgressBar/ProgressBar.module.css";
 
 const WordsTable = ({ words, handleActions, actionType }) => {
   const isMobile = useIsMobile();
@@ -54,7 +55,14 @@ const WordsTable = ({ words, handleActions, actionType }) => {
         accessor: "progress",
 
         Cell: ({ row }) => {
-          return <ProgressBar word={row.original} />;
+          return (
+            <ProgressBar
+              progress={row.original.progress}
+              pageType="table"
+              classWrap={style.progressWrapTable}
+              classBox={style.boxTable}
+            />
+          );
         },
       });
     }
