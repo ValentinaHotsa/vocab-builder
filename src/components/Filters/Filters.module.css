@@ -14,7 +14,7 @@
 .input {
   border: 1px solid rgba(18, 20, 23, 0.1);
   border-radius: 15px;
-  padding: 12px 24px;
+  padding: 14px 24px 10px 24px;
   background-color: transparent;
   font-size: 16px;
   font-weight: 500;
@@ -22,6 +22,7 @@
   height: 48px;
   font-family: "FixelDisplay";
   width: 100%;
+  outline: none;
 }
 .input::placeholder {
   color: var(--black);
@@ -34,7 +35,7 @@
   height: 20px;
   fill: transparent;
   stroke: var(--black);
-  right: 35px;
+  right: 22px;
   top: 32%;
 }
 /* RADIO BUTTON */
@@ -42,7 +43,7 @@
   display: flex;
   flex-direction: row;
   gap: 16px;
-  overflow: hidden;
+
   visibility: hidden;
   transition: all 0.3s;
 }
@@ -121,7 +122,6 @@
   .filterContainer {
     flex-direction: row;
     align-items: center;
-    /* margin-bottom: 28px; */
   }
   .inputContainer {
     width: 274px;

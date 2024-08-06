@@ -1,18 +1,40 @@
 .button {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 24px;
   border: none;
   background: none;
   display: flex;
-  align-items: center;
   gap: 6px;
-  /* width: 81px; */
+  color: var(--background-white);
+  transition: all 0.3s ease;
+}
+
+.button:hover,
+.button:active,
+.button:focus {
+  color: var(--gray-text-color);
+}
+
+.button:hover .icon,
+.button:active .icon,
+.button:focus .icon {
+  stroke: var(--gray-text-color);
 }
 
 .icon {
   width: 16px;
   height: 16px;
-  stroke: var(--black);
+  stroke: var(--background-white);
   fill: transparent;
+  transition: all 0.3s ease;
+}
+
+@media screen and (min-width: 900px) {
+  .button {
+    color: var(--black);
+    font-size: 16px;
+  }
+  .icon {
+    stroke: var(--black);
+  }
 }

@@ -11,7 +11,7 @@
   line-height: 28px;
 }
 
-.iconWrap {
+.iconWrapHeader {
   border-radius: 50%;
   background-color: var(--main-green);
   width: 36px;
@@ -21,21 +21,44 @@
   align-items: center;
 }
 
-.iconHeader {
+.iconWrapHeader svg {
   width: 15px;
   height: 15px;
   fill: rgba(252, 252, 252, 0.7);
+}
+
+.iconWrapMenu {
+  border-radius: 50%;
+  background-color: var(--background-white);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconWrapMenu svg {
+  width: 15px;
+  height: 15px;
+  fill: var(--main-green);
+}
+.nameMenu {
+  color: var(--background-white);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 @media screen and (min-width: 900px) {
   .userContainer {
     gap: 8px;
   }
-  .iconWrap {
+  .iconWrapHeader {
     width: 48px;
     height: 48px;
   }
-  .iconHeader {
+
+  .iconWrapHeader svg {
     width: 18px;
     height: 18px;
   }
@@ -44,7 +67,16 @@
   }
 }
 
-.iconMenu {
-}
-.nameMenu {
+@media screen and (min-width: 768px) {
+  .iconWrapMenu {
+    width: 48px;
+    height: 48px;
+  }
+  .iconWrapMenu svg {
+    width: 18px;
+    height: 18px;
+  }
+  .nameMenu {
+    font-size: 20px;
+  }
 }

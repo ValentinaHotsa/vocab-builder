@@ -42,7 +42,7 @@ const Dropdown = ({
   return (
     <div ref={dropdownRef} className={className}>
       <div className={dropHeader} onClick={() => setIsOpen(!isOpen)}>
-        {upperCaseFirstLetter(selectedOption)}
+        <span>{upperCaseFirstLetter(selectedOption)}</span>
         <svg>
           <use href={`${svg}#icon-down`} />
         </svg>

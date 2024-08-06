@@ -7,6 +7,7 @@ import UserBar from "../UserBar/UserBar";
 import LogOut from "../auth/LogOut/LogOut";
 import img1x from "../../assets/images/illustration@1x.png";
 import img2x from "../../assets/images/illustration@2x.png";
+
 const BurgerMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -27,13 +28,13 @@ const BurgerMenu = () => {
       </button>
 
       <div className={css.menuModal + (menuOpen ? " " + css.open : "")}>
-        <UserBar styleIcon={style.iconMenu} styleName={style.nameMenu} />
+        <UserBar styleIcon={style.iconWrapMenu} styleName={style.nameMenu} />
         <button className={css.btnClose} onClick={closeMenu}>
           <svg className={css.iconClose}>
             <use href={`${svg}#icon-close`} />
           </svg>
         </button>
-        <div>
+        <div className={css.listWrap}>
           <Navigation />
           <LogOut />
         </div>

@@ -17,6 +17,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 24px;
+  cursor: pointer;
 }
 
 .headerFilter svg {
@@ -54,12 +55,13 @@
 
 .dropdownAddWord {
   position: relative;
-  width: 311px;
+  /* width: 311px; */
   margin-bottom: 9px;
 }
 
 .headerAddWord {
   font-size: 16px;
+  height: 48px;
   font-weight: 500;
   line-height: 1.5;
   border: 1px solid rgba(252, 252, 252, 0.3);
@@ -70,8 +72,15 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 24px;
+  cursor: pointer;
 }
 
+.headerAddWord span {
+  margin-top: 3px;
+}
+.headerFilter span {
+  margin-top: 3px;
+}
 .headerAddWord svg {
   fill: var(--white);
   width: 15px;
@@ -80,7 +89,7 @@
 
 .listAddWord {
   position: absolute;
-  width: 205px;
+  width: 100%;
   margin-top: 10px;
   overflow-y: auto;
   border: none;
@@ -123,6 +132,13 @@
 @media screen and (min-width: 768px) {
   .dropdownFilter {
     width: 164px;
+  }
+  .dropdownAddWord {
+    width: 204px;
+    margin-bottom: 12px;
+  }
+  .listAddWord {
+    width: 205px;
   }
 }
 

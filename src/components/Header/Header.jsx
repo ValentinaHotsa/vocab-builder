@@ -11,14 +11,14 @@ import { useEffect, useState } from "react";
 
 const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767.9);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 899.9);
   const [isMinimumMobile, setIsMininmumMobile] = useState(
     window.innerWidth <= 374.9
   );
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 767.9);
+      setIsMobile(window.innerWidth <= 899.9);
       setIsMininmumMobile(window.innerWidth <= 374.9);
     };
     window.addEventListener("resize", handleResize);
@@ -50,7 +50,7 @@ const Header = () => {
               }`}
             >
               <UserBar
-                styleIcon={style.iconHeader}
+                styleIcon={style.iconWrapHeader}
                 styleName={style.nameHeader}
               />
             </div>

@@ -6,6 +6,13 @@
   width: 40px;
   height: 28px;
   stroke: var(--black);
+  transition: all 0.3s ease;
+}
+
+.button:hover .iconBurger,
+.button:active .iconBurger,
+.button:focus .iconBurger {
+  stroke: var(--gray-text-color);
 }
 
 .imgThumb {
@@ -36,7 +43,6 @@
   transform: translateX(100%);
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
 }
 .menuModal.open {
   transition: all 0.5s ease;
@@ -54,4 +60,23 @@
   stroke: var(--white);
   width: 32px;
   height: 32px;
+}
+
+.listWrap {
+  position: absolute;
+  top: 25%;
+}
+
+@media screen and (min-width: 768px) {
+  .menuModal {
+    width: 300px;
+  }
+  .imgThumb {
+    width: 498px;
+    height: 435px;
+    left: -73px;
+  }
+  .listWrap {
+    top: 15%;
+  }
 }

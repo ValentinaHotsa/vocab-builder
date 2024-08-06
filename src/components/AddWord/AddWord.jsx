@@ -22,7 +22,7 @@ const wordSchema = Yup.object().shape({
         schema
           .matches(
             /^\b[A-Za-z'-]+-[A-Za-z'-]+-[A-Za-z'-]+\b$/,
-            "Such data must be entered in the format I form-II form-III form."
+            "Such data must be entered in the format I form-II form-III form"
           )
           .required("English word is required for irregular verbs"),
       otherwise: (schema) =>
@@ -55,11 +55,13 @@ const AddWord = () => {
     register,
     handleSubmit,
     setValue,
-    formState: { errors, dirtyFields },
+    watch,
+    formState: { errors },
   } = useForm({ mode: "onChange", resolver: yupResolver(wordSchema) });
 
   const closeModal = () => {
     setModalOpen(false);
+    setSelectedCategory(null);
   };
   const handleClick = () => {
     setModalOpen(true);
@@ -85,6 +87,8 @@ const AddWord = () => {
       });
   };
 
+  const isIrregular = watch("isIrregular");
+
   return (
     <>
       <button type="button" onClick={handleClick} className={css.button}>
@@ -103,7 +107,7 @@ const AddWord = () => {
               enriching the language base and expanding the vocabulary.
             </p>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div>
+              <div className={css.categoryWrap}>
                 <Dropdown
                   defaultOption={defaultOption}
                   onSelect={(option) => {
@@ -116,10 +120,9 @@ const AddWord = () => {
                   dropList={style.listAddWord}
                 />
                 {errors.category && (
-                  <p className={css.error}>{errors.category.message}</p>
+                  <p className={css.errorCategory}>{errors.category.message}</p>
                 )}
               </div>
-
               <div
                 className={
                   css.btnWrap +
@@ -146,8 +149,19 @@ const AddWord = () => {
                   <span className={css.checkmark}></span>
                 </label>
                 {errors.isIrregular && (
-                  <p className={css}>{errors.isIrregular.message}</p>
+                  <p className={css.errorRadio}>{errors.isIrregular.message}</p>
                 )}
+              </div>
+              <div
+                className={
+                  css.notificationRadio +
+                  (isIrregular === "true" ? " " + css.visible : "")
+                }
+              >
+                <p>
+                  Such data must be entered in the format I form-II form-III
+                  form.
+                </p>
               </div>
 
               <div className={css.inputContainer}>
@@ -163,7 +177,9 @@ const AddWord = () => {
                   id="ua"
                   className={css.input}
                 />
-                {errors.ua && <p className={css.error}>{errors.ua.message}</p>}
+                {errors.ua && (
+                  <p className={css.errorInput}>{errors.ua.message}</p>
+                )}
               </div>
               <div className={css.inputContainer}>
                 <label htmlFor="en" className={css.label}>
@@ -178,9 +194,10 @@ const AddWord = () => {
                   id="en"
                   className={css.input}
                 />
-                {errors.en && <p className={css.error}>{errors.en.message}</p>}
+                {errors.en && (
+                  <p className={css.errorInput}>{errors.en.message}</p>
+                )}
               </div>
-
               <div className={css.btnWrapper}>
                 <button className={css.btnAdd} type="submit">
                   Add

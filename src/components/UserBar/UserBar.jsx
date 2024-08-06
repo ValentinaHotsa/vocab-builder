@@ -1,9 +1,7 @@
-import css from "./UserBar.module.css";
-import svg from "../../assets/icon.svg";
-import LogOut from "../auth/LogOut/LogOut";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/auth/selectors";
-import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import css from "./UserBar.module.css";
+import svg from "../../assets/icon.svg";
 
 const UserBar = ({ styleName, styleIcon }) => {
   const userName = useSelector(selectUser);
@@ -11,8 +9,8 @@ const UserBar = ({ styleName, styleIcon }) => {
   return (
     <div className={css.userContainer}>
       <span className={styleName}>{userName}</span>
-      <div className={css.iconWrap}>
-        <svg className={styleIcon}>
+      <div className={styleIcon}>
+        <svg>
           <use href={`${svg}#icon-user`} />
         </svg>
       </div>

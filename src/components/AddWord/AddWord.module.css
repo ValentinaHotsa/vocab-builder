@@ -116,63 +116,55 @@
 .btnCancel:active {
   color: var(--black);
 }
-.error {
+.categoryWrap {
+  position: relative;
+}
+.errorCategory {
   position: absolute;
-  font-size: 12px;
-  top: 87px;
-  right: 5px;
+  font-size: 11px;
+  top: 49px;
+  left: 143px;
   color: rgba(252, 252, 252, 0.8);
 }
 
-@media screen and (min-width: 768px) {
-  .title {
-    font-size: 40px;
-    line-height: 1.2;
-  }
-  .subtitle {
-    font-size: 20px;
-  }
-  .inputContainer {
-    flex-direction: row-reverse;
-    justify-content: start;
-    gap: 32px;
-    margin-bottom: 18px;
-  }
-  .containerFormEdit {
-    padding: 16px 0;
-  }
-  .countryIcon {
-    width: 32px;
-    height: 32px;
-  }
-  .input {
-    width: 354px;
-    height: 56px;
-  }
-  .label {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  .btnAdd {
-    width: 245px;
-    height: 56px;
-  }
-  .btnCancel {
-    width: 245px;
-    height: 56px;
-  }
+.errorInput {
+  position: absolute;
+  color: rgba(252, 252, 252, 0.8);
+  font-size: 11px;
+  top: 86px;
+  right: 5px;
 }
 
+.notificationRadio {
+  overflow: hidden;
+  visibility: hidden;
+  margin-bottom: 16px;
+  color: rgba(252, 252, 252, 0.8);
+  font-size: 10px;
+  line-height: 1.2;
+}
+.notificationRadio.visible {
+  visibility: visible;
+}
+
+.errorRadio {
+  position: absolute;
+  font-size: 11px;
+  top: 283px;
+  right: 20px;
+  color: rgba(252, 252, 252, 0.8);
+}
 /* RADIO BUTTON */
 .btnWrap {
   display: flex;
   flex-direction: row;
   gap: 16px;
-  /* margin-top: 8px;
-  margin-bottom: 38px; */
+  /* margin-top: 8px;*/
+  margin-bottom: 8px;
   overflow: hidden;
   visibility: hidden;
   transition: all 0.3s;
+  /* position: relative; */
 }
 .btnWrap.visible {
   visibility: visible;
@@ -234,4 +226,69 @@
 
 .radioContainer:hover input ~ .checkmark::after {
   display: block;
+}
+@media screen and (min-width: 375px) {
+  .errorCategory {
+    left: 199px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .subtitle {
+    font-size: 20px;
+    margin-bottom: 32px;
+  }
+  .inputContainer {
+    flex-direction: row-reverse;
+    justify-content: start;
+    gap: 32px;
+    margin-bottom: 18px;
+  }
+  .containerFormEdit {
+    padding: 16px 0;
+  }
+  .countryIcon {
+    width: 32px;
+    height: 32px;
+  }
+  .input {
+    width: 354px;
+    height: 56px;
+    border-color: rgba(252, 252, 252, 0.3);
+  }
+  .label {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .btnAdd {
+    width: 245px;
+    height: 56px;
+  }
+  .btnCancel {
+    width: 245px;
+    height: 56px;
+  }
+  .notificationRadio {
+    font-size: 12px;
+  }
+  .radioContainer {
+    font-size: 16px;
+  }
+  .errorInput {
+    top: 58px;
+    right: 153px;
+  }
+  .errorCategory {
+    top: 49px;
+    left: 90px;
+  }
+  .errorRadio {
+    right: 0;
+    left: 64px;
+    top: 320px;
+  }
 }
