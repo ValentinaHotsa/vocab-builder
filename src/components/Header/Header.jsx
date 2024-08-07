@@ -8,6 +8,7 @@ import UserBar from "../UserBar/UserBar";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import LogOut from "../auth/LogOut/LogOut";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -29,12 +30,12 @@ const Header = () => {
 
   return (
     <div className={css.headerContent}>
-      <div className={css.logoContainer}>
+      <Link to="/dictionary" className={css.logoContainer}>
         <svg className={css.logoIcon}>
           <use href={`${svg}#icon-logo`} />
         </svg>
         <span className={css.logoText}>VocabBuilder</span>
-      </div>
+      </Link>
 
       {isLoggedIn && (
         <>

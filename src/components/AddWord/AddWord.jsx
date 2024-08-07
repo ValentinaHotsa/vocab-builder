@@ -46,7 +46,6 @@ const wordSchema = Yup.object().shape({
 
 const AddWord = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const defaultOption = "Categories";
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -109,12 +108,12 @@ const AddWord = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className={css.categoryWrap}>
                 <Dropdown
-                  defaultOption={defaultOption}
+                  defaultOption="Select a category"
                   onSelect={(option) => {
                     setSelectedCategory(option);
                     setValue("category", option);
                   }}
-                  options={categories}
+                  options={categories.filter((cat) => cat !== "all")}
                   className={style.dropdownAddWord}
                   dropHeader={style.headerAddWord}
                   dropList={style.listAddWord}

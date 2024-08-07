@@ -1,22 +1,22 @@
 .buttonArrow svg {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 .buttonArrow {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   border: 1px solid rgba(18, 20, 23, 0.1);
   background-color: transparent;
   border-radius: 8px;
 }
 
 .btnNumber {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   border: 1px solid rgba(18, 20, 23, 0.1);
   background-color: transparent;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 10px;
   font-weight: 600;
   transition: all 0.3s ease;
 }
@@ -49,7 +49,29 @@
 
 .paginationContainer {
   display: flex;
-  gap: 10px;
+  /* gap: 10px; */
   justify-content: center;
-  margin-bottom: 45px;
+  margin-bottom: 32px;
+  gap: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  .paginationContainer {
+    margin-bottom: 80px;
+    gap: 10px;
+  }
+  .buttonArrow {
+    width: 32px;
+    height: 32px;
+  }
+
+  .btnNumber {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+  .buttonArrow svg {
+    width: 16px;
+    height: 16px;
+  }
 }

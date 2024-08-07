@@ -6,7 +6,7 @@ import MainImage from "../../components/MainImage/MainImage";
 const LoginPage = () => {
   return (
     <section className={css.sectionWrap}>
-      <MainImage />
+      <MainImage pageType="login" />
       <LoginForm />
     </section>
   );

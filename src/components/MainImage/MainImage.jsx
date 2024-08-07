@@ -1,7 +1,8 @@
 import img1x from "../../assets/images/illustration@1x.png";
 import img2x from "../../assets/images/illustration@2x.png";
 import css from "./MainImage.module.css";
-const MainImage = () => {
+
+const MainImage = ({ pageType }) => {
   return (
     <div className={css.container}>
       <div className={css.imgThumb}>
@@ -12,7 +13,10 @@ const MainImage = () => {
           alt="young-couple-sitting-on-the-floor-and-reading-books"
         />
       </div>
-      <span className={css.subtitle}>
+
+      <span
+        className={`${css.subtitle} ${pageType === "login" ? css.show : ""}`}
+      >
         Word · Translation · Grammar · Progress
       </span>
     </div>

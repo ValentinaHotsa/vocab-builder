@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { fetchAllWords } from "../../redux/word/operations";
-import { selectTotalPages } from "../../redux/word/selectors";
 import css from "./WordsPagination.module.css";
 import svg from "../../assets/icon.svg";
 
@@ -14,34 +11,48 @@ const WordsPagination = ({ currentPage, totalPages, onPageChange }) => {
   const createPageNumbers = () => {
     let pages = [];
     let key = 0;
-    if (totalPages <= 5) {
-      for (let i = 1; i <= totalPages; i++) {
-        pages.push(i);
-      }
-    } else {
-      if (currentPage > 3) {
-        pages.push(1);
-        if (currentPage > 4) {
-          pages.push(`dots-${++key}`);
-        }
-      }
-      const staretPage = Math.max(currentPage - 2, 1);
-      const endPage = Math.min(currentPage + 2, totalPages);
 
-      for (let i = staretPage; i <= endPage; i++) {
-        pages.push(i);
-      }
+    pages.push(1);
 
-      if (currentPage < totalPages - 2) {
-        if (currentPage < totalPages - 3) {
-          pages.push(`dots-${++key}`);
-        }
-        pages.push(totalPages);
-      }
+    // if (totalPages <= 5) {
+    //   for (let i = 1; i <= totalPages; i++) {
+    //     pages.push(i);
+    //   }
+    // } else {
+    //   pages.push(1);
+    //   if (currentPage > 3) {
+    //     pages.push(`dots-${++key}`);
+    //   }
+
+    if (currentPage > 3) {
+      pages.push(`dots-${++key}`);
     }
+
+    let startPage = Math.max(currentPage - 1, 2);
+    let endPage = Math.min(currentPage + 1, totalPages - 1);
+
+    // if (currentPage === 1) {
+    //   endPage = Math.min(currentPage + 2, totalPages);
+    // }
+
+    // if (currentPage === totalPages) {
+    //   startPage = Math.max(currentPage - 2, 1);
+    // }
+
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(i);
+    }
+
+    if (currentPage < totalPages - 2) {
+      pages.push(`dots-${++key}`);
+    }
+
+    if (totalPages > 1) {
+      pages.push(totalPages);
+    }
+
     return pages;
   };
-
   return (
     <div className={css.paginationContainer}>
       <button
@@ -64,7 +75,9 @@ const WordsPagination = ({ currentPage, totalPages, onPageChange }) => {
       </button>
       {createPageNumbers().map((page, index) =>
         typeof page === "string" ? (
-          <span key={page}>...</span>
+          <button key={page} className={css.btnNumber}>
+            ...
+          </button>
         ) : (
           <button
             key={page}

@@ -1,13 +1,13 @@
 .mainContainer {
   flex-grow: 1;
-  /* padding: 0 10px; */
-  /* height: 100vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (min-width: 320px) {
   .mainContainer {
     max-width: 100%;
-    /* padding: 0 20px; */
   }
 }
 
@@ -34,8 +34,9 @@
 
 .headerContainer {
   width: 100%;
-  background-color: #ffffff; /* Замените на нужный цвет */
+  background-color: #ffffff;
   padding: 16px 0;
+  flex-shrink: 0;
 }
 
 @media screen and (min-width: 768px) {

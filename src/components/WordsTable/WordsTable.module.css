@@ -90,16 +90,16 @@
 }
 
 .tableHeader:nth-child(1) {
-  width: 90px;
+  width: 82px;
 }
 .tableHeader:nth-child(2) {
-  width: 116px;
+  width: 93px;
 }
 .tableHeader:nth-child(3) {
-  width: 99px;
+  width: 95px;
 }
 .tableHeader:nth-child(4) {
-  width: 99px;
+  width: 50px;
 }
 
 @media screen and (min-width: 375px) {

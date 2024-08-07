@@ -32,7 +32,6 @@ const initialState = {
   tasks: [],
   page: null,
   totalPages: null,
-  // totalPage2: null,
   perPage: null,
   isLoading: false,
   error: null,
@@ -46,7 +45,7 @@ const wordSlice = createSlice({
       .addCase(fetchCategories.pending, handlePending)
       .addCase(fetchCategories.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.categories = ["all", ...action.payload];
+        state.categories = action.payload;
       })
       .addCase(fetchCategories.rejected, handleRejected)
 
@@ -56,7 +55,6 @@ const wordSlice = createSlice({
         state.words = action.payload.results;
         state.page = action.payload.page;
         state.totalPages = action.payload.totalPages;
-        // state.totalPage2 = action.payload.results;
         state.perPage = action.payload.perPage;
       })
       .addCase(fetchAllWords.rejected, handleRejected)
@@ -67,11 +65,9 @@ const wordSlice = createSlice({
         state.ownWords = action.payload.results;
         state.page = action.payload.page;
         state.totalPages = action.payload.totalPages;
-        state.totalPage2 = action.payload.results;
         state.perPage = action.payload.perPage;
       })
       .addCase(ownWords.rejected, handleRejected)
-
       .addCase(deleteWord.pending, handlePending)
       .addCase(deleteWord.fulfilled, (state, action) => {
         state.ownWords = state.ownWords.filter(

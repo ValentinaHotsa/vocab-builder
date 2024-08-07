@@ -4,6 +4,7 @@ import PrivateRoute from "./routes/PrivateRoute";
 import { RestrictedRoute } from "./routes/RestrictedRoute";
 import { refreshUserThunk } from "./redux/auth/operation";
 import { useDispatch } from "react-redux";
+import Loader from "./components/Loader/Loader";
 
 const Main = lazy(() => import("./pages/MainPage/MainPage"));
 const Login = lazy(() => import("./pages/LoginPage/LoginPage"));
@@ -24,7 +25,7 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <Suspense fallback={<h3>Loading...</h3>}>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route

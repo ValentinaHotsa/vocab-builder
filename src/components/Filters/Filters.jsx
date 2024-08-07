@@ -14,7 +14,6 @@ const Filters = ({ onFilterChange }) => {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [verbType, setVerbType] = useState("false");
-  // const defaultOption = "Categories";
 
   useEffect(() => {
     dispatch(fetchCategories());
@@ -77,7 +76,7 @@ const Filters = ({ onFilterChange }) => {
       <Dropdown
         defaultOption="Categories"
         onSelect={handleCategoryChange}
-        options={categories}
+        options={["all", ...categories]}
         className={style.dropdownFilter}
         dropHeader={style.headerFilter}
         dropList={style.listFilter}

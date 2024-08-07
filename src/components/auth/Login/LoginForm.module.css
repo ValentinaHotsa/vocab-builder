@@ -3,7 +3,9 @@
   border-radius: 25px 25px 0px 0px;
   background-color: var(--form-background);
   width: 100%;
-  /* max-width: 628px; */
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
 }
 .titleForm {
   font-size: 30px;
@@ -162,5 +164,6 @@
     width: 628px;
     padding: 48px 64px;
     border-radius: 30px;
+    position: relative;
   }
 }

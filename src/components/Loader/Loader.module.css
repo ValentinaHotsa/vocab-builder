@@ -1,0 +1,19 @@
+.container {
+  /* height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.icon {
+  animation: loaderAnimation 2s linear infinite;
+}
+
+@keyframes loaderAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import Loader from "../Loader/Loader";
 
 import Header from "../Header/Header";
 import css from "./SharedLayout.module.css";
@@ -12,7 +13,7 @@ const SharedLayout = () => {
       </header>
       <div className={css.mainContainer}>
         <main>
-          <Suspense fallback={<h3>Loading....</h3>}>
+          <Suspense fallback={<Loader />}>
             <Outlet />
           </Suspense>
         </main>
