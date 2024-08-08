@@ -2,6 +2,7 @@
   "name": "vocab-builder",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ValentinaHotsa.github.io/vocab-builder",
   "dependencies": {
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
@@ -13,6 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
     "formik": "^2.4.6",
+    "gh-pages": "^6.1.1",
     "lodash.debounce": "^4.0.8",
     "nanoid": "^5.0.7",
     "react": "^18.3.1",
@@ -29,6 +31,8 @@
     "yup": "^1.4.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

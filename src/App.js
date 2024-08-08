@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { refreshUserThunk } from "./redux/auth/operation";
 import { RestrictedRoute } from "./routes/RestrictedRoute";
@@ -27,6 +27,7 @@ const App = () => {
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Navigate to="login" />} />
           <Route
             path="register"
             element={
