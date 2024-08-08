@@ -13,7 +13,6 @@ const MainImage = ({ pageType }) => {
           alt="young-couple-sitting-on-the-floor-and-reading-books"
         />
       </div>
-
       <span
         className={`${css.subtitle} ${pageType === "login" ? css.show : ""}`}
       >

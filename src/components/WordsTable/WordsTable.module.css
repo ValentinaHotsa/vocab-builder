@@ -1,15 +1,11 @@
 .tableContainer {
   margin-bottom: 32px;
 }
-
 .table {
   background-color: var(--background-white);
   border-collapse: collapse;
 
   width: 100%;
-}
-
-.tableRow {
 }
 .tableHeader {
   padding: 14px 8px;
@@ -19,7 +15,6 @@
   font-weight: 500;
   line-height: 1.4;
 }
-
 .tableHeader span {
   display: flex;
   flex-direction: row;
@@ -29,14 +24,12 @@
 .tableHeader:first-child {
   border-radius: 8px 0 0 0;
 }
-
 .tableHeader:not(:last-child) {
   border-right: 1px solid rgb(219, 219, 219);
 }
 .tableHeader:last-child {
   border-radius: 0 8px 0 0;
 }
-
 .tableItem {
   padding: 14px 8px;
   border-bottom: 1px solid rgb(219, 219, 219);
@@ -57,7 +50,6 @@
 .iconCountry {
   display: none;
 }
-
 .buttonAdd {
   border: none;
   background-color: transparent;
@@ -68,11 +60,9 @@
   gap: 8px;
   transition: all 0.4s ease;
 }
-
 .buttonAdd span {
   display: none;
 }
-
 .iconAdd {
   width: 20px;
   height: 20px;
@@ -80,15 +70,12 @@
   stroke: var(--main-green);
   transition: transform 0.5s ease;
 }
-
 .buttonAdd:hover {
   color: var(--gray-text-color);
 }
-
 .buttonAdd:hover .iconAdd {
   transform: rotate(360deg);
 }
-
 .tableHeader:nth-child(1) {
   width: 82px;
 }

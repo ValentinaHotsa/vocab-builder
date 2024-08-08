@@ -1,15 +1,14 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import PrivateRoute from "./routes/PrivateRoute";
-import { RestrictedRoute } from "./routes/RestrictedRoute";
-import { refreshUserThunk } from "./redux/auth/operation";
 import { useDispatch } from "react-redux";
+import { refreshUserThunk } from "./redux/auth/operation";
+import { RestrictedRoute } from "./routes/RestrictedRoute";
+import PrivateRoute from "./routes/PrivateRoute";
 import Loader from "./components/Loader/Loader";
 
-const Main = lazy(() => import("./pages/MainPage/MainPage"));
 const Login = lazy(() => import("./pages/LoginPage/LoginPage"));
 const Register = lazy(() => import("./pages/RegisterPage/RegisterPage"));
-const NotFound = lazy(() => import("./pages/NotFoundPage"));
+const NotFound = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 const Recommend = lazy(() => import("./pages/RecommendPage/RecommendPage"));
 const Dictionary = lazy(() => import("./pages/DictionaryPage/DictionaryPage"));
 const Training = lazy(() => import("./pages/TrainingPage/TrainingPage"));

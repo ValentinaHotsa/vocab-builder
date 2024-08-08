@@ -9,9 +9,9 @@ const Dropdown = ({
   dropHeader,
   dropList,
 }) => {
+  const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(defaultOption);
-  const dropdownRef = useRef(null);
 
   const handleSelectOption = (option) => {
     setSelectedOption(option);

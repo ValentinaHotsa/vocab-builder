@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
+import { useEffect, useRef } from "react";
 import css from "./Modal.module.css";
 import svg from "../../assets/icon.svg";
 

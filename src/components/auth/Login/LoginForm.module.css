@@ -48,7 +48,6 @@
   outline: none;
   transition: all 0.3s ease;
 }
-
 .input:hover,
 .input:focus,
 .input:active {
@@ -59,10 +58,8 @@
   opacity: 1;
   font-family: "FixelDisplay";
 }
-
 .iconEye {
   position: absolute;
-
   stroke: var(--black);
   fill: transparent;
   width: 18px;
@@ -94,7 +91,6 @@
   display: flex;
   gap: 5px;
 }
-
 .errorMessage {
   font-size: 12px;
   line-height: 1.5;
@@ -110,7 +106,6 @@
 .error {
   border-color: var(--form-error);
 }
-
 .valid {
   border-color: var(--form-success);
 }
@@ -122,7 +117,6 @@
   display: flex;
   justify-content: center;
 }
-
 .link {
   font-size: 16px;
   font-weight: 700;
@@ -131,7 +125,6 @@
   color: var(--gray-text-color);
   transition: all 0.3s ease;
 }
-
 .link:hover,
 .link:active,
 .link:focus {

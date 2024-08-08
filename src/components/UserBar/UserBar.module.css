@@ -4,13 +4,11 @@
   align-items: center;
   gap: 10px;
 }
-
 .nameHeader {
   font-size: 16px;
   font-weight: 500;
-  line-height: 28px;
+  line-height: 1.75;
 }
-
 .iconWrapHeader {
   border-radius: 50%;
   background-color: var(--main-green);
@@ -20,13 +18,11 @@
   justify-content: center;
   align-items: center;
 }
-
 .iconWrapHeader svg {
   width: 15px;
   height: 15px;
   fill: rgba(252, 252, 252, 0.7);
 }
-
 .iconWrapMenu {
   border-radius: 50%;
   background-color: var(--background-white);
@@ -36,7 +32,6 @@
   justify-content: center;
   align-items: center;
 }
-
 .iconWrapMenu svg {
   width: 15px;
   height: 15px;
@@ -57,7 +52,6 @@
     width: 48px;
     height: 48px;
   }
-
   .iconWrapHeader svg {
     width: 18px;
     height: 18px;

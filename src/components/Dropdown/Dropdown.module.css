@@ -1,9 +1,7 @@
 .dropdownFilter {
   position: relative;
-  /* width: 343px; */
   width: 100%;
 }
-
 .headerFilter {
   font-size: 16px;
   font-weight: 500;
@@ -19,12 +17,10 @@
   padding: 12px 24px;
   cursor: pointer;
 }
-
 .headerFilter svg {
   width: 15px;
   height: 10px;
 }
-
 .listFilter {
   position: absolute;
   width: 100%;
@@ -37,11 +33,6 @@
   background: rgb(255, 255, 255);
   z-index: 1000;
 }
-
-/* .listFilter ul {
-  height: 368px;
-} */
-
 .listFilter li {
   font-size: 16px;
   font-weight: 500;
@@ -52,13 +43,10 @@
 .listFilter li:last-child {
   margin-bottom: 0;
 }
-
 .dropdownAddWord {
   position: relative;
-  /* width: 311px; */
   margin-bottom: 9px;
 }
-
 .headerAddWord {
   font-size: 16px;
   height: 48px;
@@ -74,7 +62,6 @@
   padding: 12px 24px;
   cursor: pointer;
 }
-
 .headerAddWord span {
   margin-top: 3px;
 }
@@ -86,7 +73,6 @@
   width: 15px;
   height: 10px;
 }
-
 .listAddWord {
   position: absolute;
   width: 100%;
@@ -99,10 +85,7 @@
   background: rgb(255, 255, 255);
   z-index: 1000;
   height: 240px;
-  /* scrollbar-width: thin;
-  scrollbar-color: var(--white); */
 }
-
 .listAddWord li {
   color: var(--gray-text-color);
   font-size: 16px;
@@ -115,7 +98,6 @@
 .listAddWord li:last-child {
   margin-bottom: 0;
 }
-
 .listAddWord li:hover,
 .listAddWord li:checked,
 .listAddWord li:active,
@@ -140,7 +122,4 @@
   .listAddWord {
     width: 205px;
   }
-}
-
-@media screen and (min-width: 1440px) {
 }

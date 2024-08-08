@@ -14,30 +14,12 @@ const WordsPagination = ({ currentPage, totalPages, onPageChange }) => {
 
     pages.push(1);
 
-    // if (totalPages <= 5) {
-    //   for (let i = 1; i <= totalPages; i++) {
-    //     pages.push(i);
-    //   }
-    // } else {
-    //   pages.push(1);
-    //   if (currentPage > 3) {
-    //     pages.push(`dots-${++key}`);
-    //   }
-
     if (currentPage > 3) {
       pages.push(`dots-${++key}`);
     }
 
     let startPage = Math.max(currentPage - 1, 2);
     let endPage = Math.min(currentPage + 1, totalPages - 1);
-
-    // if (currentPage === 1) {
-    //   endPage = Math.min(currentPage + 2, totalPages);
-    // }
-
-    // if (currentPage === totalPages) {
-    //   startPage = Math.max(currentPage - 2, 1);
-    // }
 
     for (let i = startPage; i <= endPage; i++) {
       pages.push(i);
@@ -53,6 +35,7 @@ const WordsPagination = ({ currentPage, totalPages, onPageChange }) => {
 
     return pages;
   };
+
   return (
     <div className={css.paginationContainer}>
       <button

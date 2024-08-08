@@ -1,14 +1,11 @@
 import { useTable } from "react-table";
-import { useDispatch } from "react-redux";
 import { useMemo } from "react";
 import { nanoid } from "nanoid";
-import { selectWords } from "../../redux/word/selectors";
-import { fetchAllWords } from "../../redux/word/operations";
-import WordMenu from "../WordMenu/WordMenu";
-import css from "./WordsTable.module.css";
-import svg from "../../assets/icon.svg";
 import { useIsMobile } from "../../hooks/useIsMobile";
+import WordMenu from "../WordMenu/WordMenu";
 import ProgressBar from "../ProgressBar/ProgressBar";
+import svg from "../../assets/icon.svg";
+import css from "./WordsTable.module.css";
 import style from "../ProgressBar/ProgressBar.module.css";
 
 const WordsTable = ({ words, handleActions, actionType }) => {
@@ -101,11 +98,7 @@ const WordsTable = ({ words, handleActions, actionType }) => {
       <table {...getTableProps()} className={css.table}>
         <thead className={css.thead}>
           {headerGroups.map((headerGroup) => (
-            <tr
-              {...headerGroup.getHeaderGroupProps()}
-              key={nanoid()}
-              className={css.headerRow}
-            >
+            <tr {...headerGroup.getHeaderGroupProps()} key={nanoid()}>
               {headerGroup.headers.map((column) => (
                 <th
                   {...column.getHeaderProps()}
@@ -122,7 +115,7 @@ const WordsTable = ({ words, handleActions, actionType }) => {
           {rows.map((row) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()} key={row.id} className={css.tableRow}>
+              <tr {...row.getRowProps()} key={row.id}>
                 {row.cells.map((cell) => (
                   <td
                     {...cell.getCellProps()}

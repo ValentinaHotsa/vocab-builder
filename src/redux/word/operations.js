@@ -1,7 +1,6 @@
-//wordOperations.js
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const notification = (error, rejectWithValue) => {

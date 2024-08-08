@@ -2,15 +2,11 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  /* margin-bottom: 18px; */
-  /* align-items: center; */
 }
-
 .inputContainer {
   width: 100%;
   position: relative;
 }
-
 .input {
   border: 1px solid rgba(18, 20, 23, 0.1);
   border-radius: 15px;
@@ -38,20 +34,18 @@
   right: 22px;
   top: 32%;
 }
+
 /* RADIO BUTTON */
 .btnWrap {
   display: flex;
   flex-direction: row;
   gap: 16px;
-
   visibility: hidden;
   transition: all 0.3s;
 }
-
 .btnWrap.visible {
   visibility: visible;
 }
-
 .radioContainer {
   position: relative;
   padding-left: 26px;
@@ -68,7 +62,6 @@
   opacity: 0;
   cursor: pointer;
 }
-
 .checkmark {
   position: absolute;
   top: 0;
@@ -80,17 +73,14 @@
   border: 2px solid rgba(18, 20, 23, 0.2);
   box-sizing: border-box;
 }
-
 .radioContainer:hover .checkmark {
   border: 2px solid var(--main-green);
 }
-
 .radioContainer input:checked ~ .checkmark {
   box-sizing: border-box;
   border: 2px solid var(--main-green);
   border-radius: 10px;
 }
-
 .checkmark::after {
   content: "";
   position: absolute;
@@ -105,7 +95,6 @@
 .radioContainer input:checked ~ .checkmark::after {
   display: block;
 }
-
 .radioContainer:hover input ~ .checkmark::after {
   display: block;
 }
@@ -115,6 +104,7 @@
     width: 343px;
   }
 }
+
 @media screen and (min-width: 768px) {
   .radioContainer {
     font-size: 14px;

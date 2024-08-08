@@ -2,23 +2,19 @@
   background-color: transparent;
   border: none;
 }
-
 .wrap {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .icon {
   width: 12px;
   height: 22px;
   fill: var(--gray-text-color);
 }
-
 .button:hover .icon {
   fill: var(--black);
 }
-
 .btnWrap {
   width: 117px;
   height: 70px;
@@ -28,7 +24,6 @@
   justify-content: center;
   padding: 12px 24px 9px 24px;
 }
-
 .menuBtn {
   font-size: 14px;
   font-weight: 500;
@@ -38,7 +33,6 @@
   display: flex;
   gap: 8px;
 }
-
 .menuIcon {
   width: 16px;
   height: 16px;

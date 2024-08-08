@@ -1,13 +1,12 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-
-import css from "./LoginForm.module.css";
-import { useState } from "react";
-import svg from "../../../assets/icon.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { signinThunk } from "../../../redux/auth/operation.js";
-import { useDispatch } from "react-redux";
+import css from "./LoginForm.module.css";
+import svg from "../../../assets/icon.svg";
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -22,9 +21,8 @@ const loginSchema = Yup.object().shape({
 });
 
 const LoginForm = () => {
-  const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const togglePassword = () => {
     setShowPassword(!showPassword);

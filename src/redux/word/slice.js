@@ -1,5 +1,3 @@
-//wordSlice.js
-
 import { createSlice } from "@reduxjs/toolkit";
 import {
   fetchCategories,

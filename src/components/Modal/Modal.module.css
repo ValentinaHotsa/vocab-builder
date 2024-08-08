@@ -23,10 +23,8 @@
   border-radius: 30px;
   padding: 48px 16px;
   width: 288px;
-
   flex-direction: column;
 }
-
 .btnClose {
   position: absolute;
   right: 16px;
@@ -37,7 +35,6 @@
   cursor: pointer;
   text-align: center;
 }
-
 .iconClose {
   width: 24px;
   height: 24px;

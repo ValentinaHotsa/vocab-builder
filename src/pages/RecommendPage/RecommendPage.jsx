@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Dashboard from "../../components/Dashboard/Dashboard";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTotalPages, selectWords } from "../../redux/word/selectors";
 import { fetchAllWords, addWord } from "../../redux/word/operations";
+import Dashboard from "../../components/Dashboard/Dashboard";
 import WordsTable from "../../components/WordsTable/WordsTable";
 import WordsPagination from "../../components/WordsPagination/WordsPagination";
 
@@ -18,7 +18,6 @@ const RecommendPage = () => {
   });
 
   useEffect(() => {
-    // console.log("Dispatching with filters:", filters);
     dispatch(
       fetchAllWords({
         page: currentPage,

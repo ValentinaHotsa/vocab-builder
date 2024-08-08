@@ -1,9 +1,8 @@
-import TrainingRoom from "../../components/TrainingRoom/TrainingRoom";
-import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getTasks } from "../../redux/word/operations";
 import { selectTasks } from "../../redux/word/selectors";
+import TrainingRoom from "../../components/TrainingRoom/TrainingRoom";
 import NoTasks from "../../components/NoTasks/NoTasks";
 
 const TrainingPage = () => {

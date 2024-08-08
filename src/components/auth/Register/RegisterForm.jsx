@@ -1,12 +1,12 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
-import css from "./RegisterForm.module.css";
-import { useState } from "react";
-import svg from "../../../assets/icon.svg";
-import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import * as Yup from "yup";
+import { Link } from "react-router-dom";
 import { signupThunk } from "../../../redux/auth/operation.js";
+import svg from "../../../assets/icon.svg";
+import css from "./RegisterForm.module.css";
 
 const registerSchema = Yup.object().shape({
   name: Yup.string()
@@ -25,9 +25,8 @@ const registerSchema = Yup.object().shape({
 });
 
 const RegisterForm = () => {
-  const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
@@ -45,6 +44,7 @@ const RegisterForm = () => {
   const onSubmit = (data) => {
     dispatch(signupThunk(data));
   };
+
   return (
     <div className={css.containerForm}>
       <h4 className={css.titleForm}>Register</h4>

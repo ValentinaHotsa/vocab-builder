@@ -13,8 +13,6 @@
 }
 .boxTable {
   position: relative;
-  /* width: 24px;
-  height: 24px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,12 +24,12 @@
   position: absolute;
   font-size: 16px;
   font-weight: 500;
-  /* right: 18px; */
 }
 .tablePrcent {
   display: none;
   margin-top: 3px;
 }
+
 @media screen and (min-width: 768px) {
   .tablePrcent {
     display: block;
@@ -44,7 +42,6 @@
 
 @media screen and (min-width: 1440px) {
   .progressWrapTable {
-    /* justify-content: start; */
     width: 88px;
   }
 }

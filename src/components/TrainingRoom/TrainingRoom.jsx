@@ -1,14 +1,14 @@
-import { useDispatch, useSelector } from "react-redux";
-import { selectTasks } from "../../redux/word/selectors";
-import { useEffect, useState } from "react";
-import { addAnswers, getTasks } from "../../redux/word/operations";
-import css from "./TrainingRoom.module.css";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import svg from "../../assets/icon.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import { selectTasks } from "../../redux/word/selectors";
+import { addAnswers } from "../../redux/word/operations";
 import Modal from "../Modal/Modal";
 import DoneModal from "../DoneModal/DoneModal";
 import ProgressBar from "../ProgressBar/ProgressBar";
+import svg from "../../assets/icon.svg";
+import css from "./TrainingRoom.module.css";
 import style from "../ProgressBar/ProgressBar.module.css";
 
 const TrainingRoom = () => {

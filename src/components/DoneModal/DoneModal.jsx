@@ -1,8 +1,8 @@
-import css from "./DoneModal.module.css";
-import img1x from "../../assets/images/open-book@1x.png";
-import img2x from "../../assets/images/open-book@2x.png";
 import { useSelector } from "react-redux";
 import { selectAnswer } from "../../redux/word/selectors";
+import img1x from "../../assets/images/open-book@1x.png";
+import img2x from "../../assets/images/open-book@2x.png";
+import css from "./DoneModal.module.css";
 
 const DoneModal = () => {
   const results = useSelector(selectAnswer);

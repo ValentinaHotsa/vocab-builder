@@ -1,4 +1,3 @@
-//store.js
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import {
   persistStore,
@@ -10,9 +9,9 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/slice";
 import { wordReducer } from "./word/slice";
-import storage from "redux-persist/lib/storage";
 
 const authPersistConfig = {
   key: "users",

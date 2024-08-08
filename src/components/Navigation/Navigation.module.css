@@ -34,14 +34,12 @@
     justify-content: center;
     align-items: center;
   }
-
   .navLink {
     color: var(--black);
     font-size: 14px;
     font-weight: 500;
     transition: all 0.3s ease;
   }
-
   .navWrap {
     gap: 28px;
   }

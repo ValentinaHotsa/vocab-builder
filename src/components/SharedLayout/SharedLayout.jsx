@@ -1,10 +1,10 @@
 import React, { Suspense } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Loader from "../Loader/Loader";
-
 import Header from "../Header/Header";
 import css from "./SharedLayout.module.css";
+
 const SharedLayout = () => {
   return (
     <>

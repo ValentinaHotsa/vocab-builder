@@ -7,13 +7,11 @@
   align-items: center;
   justify-content: space-between;
 }
-
 .logoContainer {
   display: flex;
   gap: 16px;
   align-items: center;
 }
-
 .logoIcon {
   width: 36px;
   height: 36px;
@@ -22,19 +20,15 @@
   color: var(--black);
   font-size: 18px;
   font-weight: 600;
-  /* margin-top: 5px; */
 }
-
 .navUserContainer {
   display: flex;
   align-items: center;
   gap: 20px;
 }
-
 .hidden {
   display: none;
 }
-
 .navUserWrap {
   display: flex;
   align-items: center;

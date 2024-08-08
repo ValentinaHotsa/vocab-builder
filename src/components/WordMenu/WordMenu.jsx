@@ -1,5 +1,5 @@
-import Popover from "@mui/material/Popover";
 import { useState } from "react";
+import Popover from "@mui/material/Popover";
 import EditWord from "../EditWord/EditWord";
 import svg from "../../assets/icon.svg";
 import css from "./WordMenu.module.css";

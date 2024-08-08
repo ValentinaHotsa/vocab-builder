@@ -1,15 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import css from "./Statistics.module.css";
 import { useEffect } from "react";
 import { getStatistics } from "../../redux/word/operations";
 import { selectStatistics } from "../../redux/word/selectors";
+import css from "./Statistics.module.css";
 
 const Statistics = () => {
-  const statistics = useSelector(selectStatistics);
   const dispatch = useDispatch();
+  const statistics = useSelector(selectStatistics);
+
   useEffect(() => {
     dispatch(getStatistics());
   }, [dispatch]);
+
   return (
     <div className={css.wrap}>
       <p className={css.title}>To study:</p>

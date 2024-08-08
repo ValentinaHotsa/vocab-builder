@@ -1,12 +1,12 @@
-import css from "./BurgerMenu.module.css";
-import style from "../UserBar/UserBar.module.css";
-import svg from "../../assets/icon.svg";
 import { useState } from "react";
 import Navigation from "../Navigation/Navigation";
 import UserBar from "../UserBar/UserBar";
 import LogOut from "../auth/LogOut/LogOut";
 import img1x from "../../assets/images/illustration@1x.png";
 import img2x from "../../assets/images/illustration@2x.png";
+import css from "./BurgerMenu.module.css";
+import style from "../UserBar/UserBar.module.css";
+import svg from "../../assets/icon.svg";
 
 const BurgerMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);

@@ -1,7 +1,6 @@
-import React from "react";
 import LoginForm from "../../components/auth/Login/LoginForm";
-import css from "./LoginPage.module.css";
 import MainImage from "../../components/MainImage/MainImage";
+import css from "./LoginPage.module.css";
 
 const LoginPage = () => {
   return (

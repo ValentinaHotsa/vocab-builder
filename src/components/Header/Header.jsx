@@ -1,14 +1,14 @@
-import css from "./Header.module.css";
-import style from "../UserBar/UserBar.module.css";
-import svg from "../../assets/icon.svg";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import Navigation from "../Navigation/Navigation";
 import UserBar from "../UserBar/UserBar";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import LogOut from "../auth/LogOut/LogOut";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import css from "./Header.module.css";
+import style from "../UserBar/UserBar.module.css";
+import svg from "../../assets/icon.svg";
 
 const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);

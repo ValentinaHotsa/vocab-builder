@@ -1,14 +1,14 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import css from "./AddWord.module.css";
-import Modal from "../Modal/Modal";
-import { useDispatch, useSelector } from "react-redux";
 import { selectCategories } from "../../redux/word/selectors";
 import { createWord } from "../../redux/word/operations";
+import Modal from "../Modal/Modal";
 import Dropdown from "../Dropdown/Dropdown";
 import svg from "../../assets/icon.svg";
+import css from "./AddWord.module.css";
 import style from "../Dropdown/Dropdown.module.css";
 
 const wordSchema = Yup.object().shape({
@@ -45,9 +45,9 @@ const wordSchema = Yup.object().shape({
 });
 
 const AddWord = () => {
-  const [modalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
+  const [modalOpen, setModalOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const {
@@ -58,10 +58,13 @@ const AddWord = () => {
     formState: { errors },
   } = useForm({ mode: "onChange", resolver: yupResolver(wordSchema) });
 
+  const isIrregular = watch("isIrregular");
+
   const closeModal = () => {
     setModalOpen(false);
     setSelectedCategory(null);
   };
+
   const handleClick = () => {
     setModalOpen(true);
   };
@@ -85,8 +88,6 @@ const AddWord = () => {
         alert(error.message);
       });
   };
-
-  const isIrregular = watch("isIrregular");
 
   return (
     <>

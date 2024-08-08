@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css?family=Audiowide&display=swap");
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background: radial-gradient(circle, #ffffff 0%, #85aa9f 100%);
+  overflow: hidden;
+}
+
+.wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.notFoundText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: 150px;
+  font-size: 32px;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%);
+  display: block;
+  color: #12000a;
+  font-weight: 300;
+  font-family: Audiowide;
+  text-shadow: 0px 0px 4px #12000a;
+  animation: fadeInText 3s ease-in 3.5s forwards,
+    flicker4 5s linear 7.5s infinite, hueRotate 6s ease-in-out 3s infinite;
+}
+
+.svgWrap {
+  position: absolute;
+  height: auto;
+  width: 600px;
+  max-width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.svgWrap,
+.background {
+  animation: hueRotate 6s ease-in-out 3s infinite;
+}
+
+.path1,
+.path2 {
+  stroke: #85aa9f;
+  stroke-width: 3px;
+  fill: transparent;
+  filter: url(#glow);
+}
+
+.path2 {
+  stroke: #12000a;
+}
+
+.path1 {
+  stroke-dasharray: 940px;
+  stroke-dashoffset: -940px;
+  animation: drawLine1 2.5s ease-in-out 0s forwards,
+    flicker1 4s linear 4s infinite;
+}
+
+.path2 {
+  stroke-dasharray: 735px;
+  stroke-dashoffset: -735px;
+  animation: drawLine2 2.5s ease-in-out 0.5s forwards,
+    flicker2 4.5s linear 4.5s infinite;
+}
+
+@keyframes drawLine1 {
+  0% {
+    stroke-dashoffset: -940px;
+  }
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+@keyframes drawLine2 {
+  0% {
+    stroke-dashoffset: -735px;
+  }
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+@keyframes flicker1 {
+  0% {
+    stroke: #85aa9f;
+  }
+  1% {
+    stroke: transparent;
+  }
+  3% {
+    stroke: transparent;
+  }
+  4% {
+    stroke: #85aa9f;
+  }
+  6% {
+    stroke: #85aa9f;
+  }
+  7% {
+    stroke: transparent;
+  }
+  13% {
+    stroke: transparent;
+  }
+  14% {
+    stroke: #85aa9f;
+  }
+  100% {
+    stroke: #85aa9f;
+  }
+}
+
+@keyframes flicker2 {
+  0% {
+    stroke: #85aa9f;
+  }
+  50% {
+    stroke: #85aa9f;
+  }
+  51% {
+    stroke: transparent;
+  }
+  61% {
+    stroke: transparent;
+  }
+  62% {
+    stroke: #85aa9f;
+  }
+  100% {
+    stroke: #85aa9f;
+  }
+}
+
+@keyframes flicker3 {
+  0% {
+    stroke: #85aa9f;
+  }
+  1% {
+    stroke: transparent;
+  }
+  10% {
+    stroke: transparent;
+  }
+  11% {
+    stroke: #85aa9f;
+  }
+  40% {
+    stroke: #85aa9f;
+  }
+  41% {
+    stroke: transparent;
+  }
+  45% {
+    stroke: transparent;
+  }
+  46% {
+    stroke: #85aa9f;
+  }
+  100% {
+    stroke: #85aa9f;
+  }
+}
+
+@keyframes flicker4 {
+  0% {
+    color: #85aa9f;
+    text-shadow: 0px 0px 4px #85aa9f;
+  }
+  30% {
+    color: #85aa9f;
+    text-shadow: 0px 0px 4px #85aa9f;
+  }
+  31% {
+    color: #12000a;
+    text-shadow: 0px 0px 4px #12000a;
+  }
+  32% {
+    color: #85aa9f;
+    text-shadow: 0px 0px 4px #85aa9f;
+  }
+  36% {
+    color: #85aa9f;
+    text-shadow: 0px 0px 4px #85aa9f;
+  }
+  37% {
+    color: #12000a;
+    text-shadow: 0px 0px 4px #12000a;
+  }
+  41% {
+    color: #12000a;
+    text-shadow: 0px 0px 4px #12000a;
+  }
+  42% {
+    color: #85aa9f;
+    text-shadow: 0px 0px 4px #85aa9f;
+  }
+  85% {
+    color: #85aa9f;
+    text-shadow: 0px 0px 4px #85aa9f;
+  }
+  86% {
+    color: #12000a;
+    text-shadow: 0px 0px 4px #12000a;
+  }
+  95% {
+    color: #12000a;
+    text-shadow: 0px 0px 4px #12000a;
+  }
+  96% {
+    color: #85aa9f;
+    text-shadow: 0px 0px 4px #85aa9f;
+  }
+  100% {
+    color: #85aa9f;
+    text-shadow: 0px 0px 4px #85aa9f;
+  }
+}
+
+@keyframes fadeInText {
+  1% {
+    color: #12000a;
+    text-shadow: 0px 0px 4px #12000a;
+  }
+  70% {
+    color: #85aa9f;
+    text-shadow: 0px 0px 14px #85aa9f;
+  }
+  100% {
+    color: #85aa9f;
+    text-shadow: 0px 0px 4px #85aa9f;
+  }
+}
+
+@keyframes hueRotate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(-120deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}

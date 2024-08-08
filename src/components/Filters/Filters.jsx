@@ -1,10 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
-import css from "./Filters.module.css";
-import { selectCategories } from "../../redux/word/selectors";
-import { useCallback, useEffect, useRef, useState } from "react";
 import debounce from "lodash.debounce";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCategories } from "../../redux/word/selectors";
+import { useEffect, useRef, useState } from "react";
 import { fetchCategories } from "../../redux/word/operations";
 import Dropdown from "../Dropdown/Dropdown";
+import css from "./Filters.module.css";
 import style from "../Dropdown/Dropdown.module.css";
 import svg from "../../assets/icon.svg";
 

@@ -11,4 +11,3 @@ const PrivateRoute = ({ component, redirectTo = "/" }) => {
 };
 
 export default PrivateRoute;
-//  */ ===========ПЕРЕВІРИТИ РОБОТУ, ВНЕСТИ ЗМІНИ ЯКЩО ТРЕБА==============**

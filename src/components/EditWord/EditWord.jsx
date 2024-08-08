@@ -1,11 +1,10 @@
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { editWord } from "../../redux/word/operations";
-import css from "../AddWord/AddWord.module.css";
 import Modal from "../Modal/Modal";
+import css from "../AddWord/AddWord.module.css";
 import svg from "../../assets/icon.svg";
 
 const editWordSchema = Yup.object().shape({
@@ -25,7 +24,7 @@ const EditWord = ({ word, onClose }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, dirtyFields },
+    formState: { errors },
   } = useForm({ mode: "onChange", resolver: yupResolver(editWordSchema) });
 
   const onSubmit = (data) => {

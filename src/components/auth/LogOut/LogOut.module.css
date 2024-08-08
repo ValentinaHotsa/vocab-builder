@@ -8,19 +8,16 @@
   color: var(--background-white);
   transition: all 0.3s ease;
 }
-
 .button:hover,
 .button:active,
 .button:focus {
   color: var(--gray-text-color);
 }
-
 .button:hover .icon,
 .button:active .icon,
 .button:focus .icon {
   stroke: var(--gray-text-color);
 }
-
 .icon {
   width: 16px;
   height: 16px;
