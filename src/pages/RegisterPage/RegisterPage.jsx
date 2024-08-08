@@ -8,6 +8,7 @@ const RegisterPage = () => {
     <section className={css.sectionWrap}>
       <MainImage />
       <RegisterForm />
+      <div className={css.spot}></div>
     </section>
   );
 };

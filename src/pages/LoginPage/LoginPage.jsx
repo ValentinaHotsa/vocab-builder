@@ -8,6 +8,7 @@ const LoginPage = () => {
     <section className={css.sectionWrap}>
       <MainImage pageType="login" />
       <LoginForm />
+      <div className={css.spot}></div>
     </section>
   );
 };
