@@ -1,70 +1,174 @@
-# Getting Started with Create React App
+# VocabBuilder <img src='src/assets/images/Logo.png'>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+VocabBuilder is an interactive web-based English language learning application that allows users to learn new words, practice, and keep track of personal progress. The application includes an authorization system, tools for filtering, searching for words, as well as the ability to add and view personal and recommended words.
 
-## Available Scripts
+<img src='src/assets/readme/title.png'>
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- User Authentication: Register and login functionality allowing users to access personal and secure content.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Dashboard: Central hub for accessing various features like word management, training, and statistics.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Word Management: Add, edit, and delete words from the user's personal dictionary. Features a modal for adding new words.
 
-### `npm test`
+- Training Mode: Interactive training sessions with tasks for translating words from English to Ukrainian and vice versa.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Progress Tracking: Visual progress indicators showing the user's learning progress through a customizable progress bar.
 
-### `npm run build`
+- Word Filtering: Dynamic word filtering in the dictionary and recommendations page, based on category or search terms.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Word Recommendations: Explore words added by other users and add them to your dictionary directly from the recommendations page.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Responsive Design: The layout adapts seamlessly across different devices:
+  - Mobile: From 320px (fluid) and becomes adaptive from 375px.
+  - Tablet: Starts from 768px.
+  - Desktop: From 1440px onwards.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech Stack
 
-### `npm run eject`
+- React
+- Redux
+- React Router
+- React Hook Form
+- Yup
+- Axios
+- MUI (Material-UI)
+- React Toastify
+- lodash.debounce
+- nanoid
+- React Table
+- Redux Persist
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Routes
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `/register` - the registration page allows new users to create an account in VocabBuilder. After registration, users can use their account to manage their vocabulary.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<img src='src/assets/readme/register.png'>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `/login` - on the login page, existing users can log into their account using their email and password. Successful login grants access to all other pages of the app.
 
-## Learn More
+- `/dictionary` - the dictionary page features a panel that helps authorized users manage their learning, filter words, and add new words. It includes a table showing all words added by the user, with columns for the English and Ukrainian versions of the word, category, and learning progress.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img src='src/assets/readme/dictionary.png'>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `/recommend` - a page that helps authorized users find new words added by other users and add them to their own vocabulary. The filter assists in finding words through a text input field or by filtering by category.
 
-### Code Splitting
+- `/training` - a training page featuring a progressBar - a visual representation of the user's progress in training, and a training room: a two-section block displaying the task word and a field for entering the response.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img src='src/assets/readme/training.png'>
 
-### Analyzing the Bundle Size
+## Resource
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Design Mockups: [View Design Mockups](https://www.figma.com/file/XRhVBdCX1wPyzCRA567kud/VocabBuilder?type=design&node-id=0-1&mode=design&t=Aa7GiCvVIpx6Nvi5-0)
+- Technical Requirements: [View Technical Requirements](https://docs.google.com/spreadsheets/d/15zCxbWA7ubDmFzjmzzXe6ysiHVMd4iD2PcZ7ilN2gRc/edit?gid=1060862504#gid=1060862504)
+- [Backend](https://vocab-builder-backend.p.goit.global/api-docs/)
 
-### Making a Progressive Web App
+## Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+To run this project locally, follow these steps:
 
-### Advanced Configuration
+1. Clone the repository:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+  git clone https://github.com/ValentinaHotsa/vocab-builder
+```
 
-### Deployment
+2. Install the dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+npm install
+```
 
-### `npm run build` fails to minify
+3. Start the development server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+npm start
+```
+
+## Author
+
+For more information or if you have any questions, feel free to contact me:
+
+- GitHub [ValentinaHotsa](https://github.com/ValentinaHotsa)
+- LinkedIn [Valentyna Hotsa](https://www.linkedin.com/in/valentynahotsa/)
+
+# UA <img src='src/assets/images/Logo.png'>
+
+VocabBuilder - це інтерактивний веб-додаток для вивчення англійської мови, який дозволяє користувачам вивчати нові слова, тренуватись, а також тримати статистику особистого прогресу. Додаток включає в себе систему авторизації, інструменти для фільтрації, пошуку слів, а також можливості для додавання та перегляду персональних та рекомендованих слів.
+
+<img src='src/assets/readme/title.png'>
+
+## Особливості
+
+- Автентифікація користувачів: дозволяє користувачам реєструватися та входити в систему, надаючи доступ до персоналізованих функцій та налаштувань.
+
+- Панель керування: центральний інтерфейс для керування навчанням користувачів, перегляду статистики та доступу до різних функціональних можливостей.
+
+- Управління словами: користувачі можуть додавати, редагувати та видаляти слова у своєму особистому словнику. Є модальне вікно для додавання нових слів.
+
+- Тренування: кімната тренувань, де користувачі можуть практикувати переклад слів між англійською та українською мовами, покращуючи свій словниковий запас.
+
+- Відстеження прогресу: Містить візуальне представлення прогресу користувача у вивченні нових слів через динамічну смугу прогресу.
+
+- Фільтрація слів: дозволяє користувачам фільтрувати слова у своєму словнику або рекомендаціях за категоріями або пошуковими запитами.
+
+- Рекомендації слів: дає можливість користувачам відкривати нові слова, додані іншими, та включати їх у свій навчальний шлях.
+
+- Адаптивний дизайн: верстка адаптивна:
+  - mobile: (від 320рх - гумова; від 375px - адаптивна)
+  - tablet: від 768px;
+  - desktop: від 1440px
+
+## Маршрути
+
+- `/register` - сторінка реєстрації дозволяє новим користувачам створювати обліковий запис у VocabBuilder. Після реєстрації користувачі можуть використовувати обліковий запис для управління своїм словником.
+
+<img src='src/assets/readme/register.png'>
+
+- `/login` - на сторінці входу існуючі користувачі можуть увійти в обліковий запис, використовуючи свій e-mail та пароль. Успішний вхід надає доступ до всіх інших сторінок додатку.
+
+- `/dictionary` - сторінка словника, на якій є панель, яка допомогає авторизованому користувачу здійснювати контроль над вивченням ним слів, фільтрувати слова та додавати нові слова і таблиця, що показує всі слова, додані користувачем. Вона включає колонки для англійської та української версії слова, категорії, та прогресу вивчення.
+
+<img src='src/assets/readme/dictionary.png'>
+
+- `/recommend` - сторінка яка допомогає авторизованому користувачу знаходити нові для нього слова, додані іншими користувачами та додавати до свого словника. В пошуку допомагає фільтр, за допомогою якого можна знайти слова через поле для вводу чи відфільтрувати по категоріям.
+
+- `/training` - сторінка для тренувань, на якій є progressBar - візуальне відображення прогресу користувача у тренуванні та trainingRoom: двосекційний блок з відображенням слова-завдання та поля для введення відповіді.
+
+<img src='src/assets/readme/training.png'>
+
+## Ресурси
+
+- Макет: [Переглянути макет](https://www.figma.com/file/XRhVBdCX1wPyzCRA567kud/VocabBuilder?type=design&node-id=0-1&mode=design&t=Aa7GiCvVIpx6Nvi5-0)
+- Технічне завдання: [Переглянути технічне завдання](https://docs.google.com/spreadsheets/d/15zCxbWA7ubDmFzjmzzXe6ysiHVMd4iD2PcZ7ilN2gRc/edit?gid=1060862504#gid=1060862504)
+- [Backend до проєкту](https://vocab-builder-backend.p.goit.global/api-docs/)
+
+## Встановлення
+
+Щоб запустити цей проект локально, виконайте такі дії:
+
+1. Клонуйте репозиторій:
+
+```bash
+  git clone https://github.com/ValentinaHotsa/vocab-builder
+```
+
+2. Встановіть залежності:
+
+```
+npm install
+```
+
+3. Запустіть сервер розробки:
+
+```
+npm start
+```
+
+## Автор
+
+Щоб отримати додаткову інформацію або у вас виникли запитання, зв'яжіться зі мною:
+
+- GitHub [ValentinaHotsa](https://github.com/ValentinaHotsa)
+- LinkedIn [Valentyna Hotsa](https://www.linkedin.com/in/valentynahotsa/)
